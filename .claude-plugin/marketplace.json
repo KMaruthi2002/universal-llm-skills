@@ -1,0 +1,11 @@
+{
+  "name": "universal-llm-skills",
+  "owner": { "name": "KMaruthi2002" },
+  "plugins": [
+    {
+      "name": "universal-llm-skills",
+      "source": "./",
+      "description": "Deep, style-neutral skills for any task: development, DevOps, AI/ML, app generation, analysis, quality, design, automation, product and communication."
+    }
+  ]
+}

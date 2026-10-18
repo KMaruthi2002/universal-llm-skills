@@ -1,0 +1,15 @@
+name: validate
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Validate skills
+        run: python3 scripts/validate.py
+      - name: Check catalog is up to date
+        run: |
+          python3 scripts/build_catalog.py
+          git diff --exit-code -- CATALOG.md catalog.json llms.txt || (echo "Run scripts/build_catalog.py and commit the result" && exit 1)

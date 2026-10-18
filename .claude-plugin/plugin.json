@@ -1,0 +1,8 @@
+{
+  "name": "universal-llm-skills",
+  "description": "Deep, style-neutral skills for development, DevOps, AI/ML, app generation, analysis, quality and reviews, UI/UX design, automation, and product and communication work.",
+  "version": "1.0.0",
+  "author": { "name": "KMaruthi2002" },
+  "license": "MIT",
+  "keywords": ["skills", "agent-skills", "development", "design", "analysis", "automation", "quality"]
+}

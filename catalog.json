@@ -1,0 +1,2123 @@
+{
+  "name": "Universal LLM Skills",
+  "description": "Deep, style-neutral skills for any LLM across development, analysis, design, quality, automation and more.",
+  "entry_point": "AGENTS.md",
+  "skill_count": 118,
+  "categories": {
+    "meta": "Meta: how to work",
+    "development": "Development",
+    "devops": "DevOps and operations",
+    "ai-ml": "AI, LLMs and machine learning",
+    "app-generation": "Application generation",
+    "analysis": "Analysis and research",
+    "quality": "Quality, testing and reviews",
+    "design": "Design, UI and UX",
+    "automation": "Automation",
+    "product-and-communication": "Product, writing and communication"
+  },
+  "skills": [
+    {
+      "name": "clarify-requirements",
+      "category": "meta",
+      "description": "Decide whether a request is clear enough to act on, find the ambiguities that would actually change the result, ask a small number of high-leverage questions, state working assumptions explicitly, and pin down acceptance criteria before doing the work. Use when a request is vague, underspecified, open to several readings, missing success criteria, or when you are tempted to guess at what the user \"probably\" means — and also to decide when NOT to ask and simply proceed. Not for writing formal specs or PRDs (see product-requirements, requirements-analysis).",
+      "path": "skills/clarify-requirements/SKILL.md",
+      "references": [],
+      "related": [
+        "plan-and-decompose",
+        "requirements-analysis",
+        "product-requirements",
+        "user-stories",
+        "explore-codebase",
+        "report-results",
+        "using-skills"
+      ]
+    },
+    {
+      "name": "estimate-effort",
+      "category": "meta",
+      "description": "Size work credibly: decompose it, estimate in ranges rather than single numbers, account for unknowns, integration, review, and rework, calibrate against past data, and communicate confidence and assumptions so others can plan around the estimate. Use when asked \"how long will this take?\", \"how big is this?\", \"can we do it by Friday?\", for sprint or project sizing, quotes, scoping a proposal, comparing options by cost, or deciding whether a task fits in the time available. Not for building the step-by-step plan (see plan-and-decompose) or prioritizing between initiatives (see roadmap-and-prioritization).",
+      "path": "skills/estimate-effort/SKILL.md",
+      "references": [],
+      "related": [
+        "plan-and-decompose",
+        "clarify-requirements",
+        "project-management",
+        "roadmap-and-prioritization",
+        "technical-decision-making",
+        "mvp-prototyping"
+      ]
+    },
+    {
+      "name": "explore-codebase",
+      "category": "meta",
+      "description": "Orient quickly and accurately in an unfamiliar or partly familiar code repository before changing it: find entry points, build/run/test commands, architecture and module boundaries, conventions, and the exact places a change belongs; trace data and control flow; read before writing. Use when starting work in a repo you have not seen, when asked \"how does X work?\", \"where is Y handled?\", or \"where should I add Z?\", before any non-trivial edit to existing code, and when onboarding to a project. Not for reviewing code quality (see code-review, architecture-review) or modernizing legacy systems (see legacy-modernization).",
+      "path": "skills/explore-codebase/SKILL.md",
+      "references": [],
+      "related": [
+        "plan-and-decompose",
+        "clarify-requirements",
+        "debugging",
+        "code-review",
+        "architecture-review",
+        "legacy-modernization",
+        "manage-context",
+        "code-documentation"
+      ]
+    },
+    {
+      "name": "manage-context",
+      "category": "meta",
+      "description": "Keep long or complex work coherent when it outgrows what can be held in view at once: maintain working notes, decide what to keep in context versus write down, summarize without losing decisions, checkpoint at stable points, resume cleanly after an interruption or context reset, delegate to sub-agents without losing the thread, and use persistent memory across sessions responsibly. Use for multi-hour or multi-session tasks, large codebases or document sets, work that will be handed off, when context is filling up or being compacted, or when resuming something started earlier. Not for designing context handling inside an LLM application (see llm-application-development, rag-systems).",
+      "path": "skills/manage-context/SKILL.md",
+      "references": [],
+      "related": [
+        "plan-and-decompose",
+        "report-results",
+        "explore-codebase",
+        "verify-before-done",
+        "using-skills",
+        "ai-agents-and-tool-use"
+      ]
+    },
+    {
+      "name": "plan-and-decompose",
+      "category": "meta",
+      "description": "Break a non-trivial task into ordered, verifiable steps: decide whether a plan is worth making, find dependencies, sequence risky and uncertain work first, define milestones that each leave the system working, and re-plan when reality diverges. Use when a task has more than a few steps, spans several files or systems, mixes unknowns with routine work, will run long or be handed off, or when someone asks \"how should we approach this?\" or \"what's the plan?\". Not for time estimates (see estimate-effort) or long-term product roadmaps (see roadmap-and-prioritization).",
+      "path": "skills/plan-and-decompose/SKILL.md",
+      "references": [],
+      "related": [
+        "clarify-requirements",
+        "estimate-effort",
+        "manage-context",
+        "verify-before-done",
+        "technical-decision-making",
+        "project-management",
+        "roadmap-and-prioritization"
+      ]
+    },
+    {
+      "name": "report-results",
+      "category": "meta",
+      "description": "Hand finished or partial work back to the person who asked for it: lead with the outcome, say what changed and where, separate verified from unverified, surface decisions and risks that need the reader, and fit length and detail to the audience and medium. Use when finishing any task, at milestones in long work, when stopping because you are blocked, and when summarizing work for someone who was not involved (a reviewer, manager, or another agent). Not for status reporting across a whole project (see project-management) or general business writing (see business-communication).",
+      "path": "skills/report-results/SKILL.md",
+      "references": [],
+      "related": [
+        "verify-before-done",
+        "clarify-requirements",
+        "manage-context",
+        "technical-writing",
+        "business-communication",
+        "pull-request-workflow",
+        "project-management"
+      ]
+    },
+    {
+      "name": "technical-decision-making",
+      "category": "meta",
+      "description": "Make and document sound technical choices: frame the actual decision and its constraints, generate genuinely different options, analyse trade-offs against criteria that matter here, weigh reversibility and cost of delay, make a clear recommendation rather than a survey, and record the decision and its reasoning (e.g. as an architecture decision record) so it can be revisited. Use when choosing between libraries, frameworks, databases, architectures, build-vs-buy, vendors, or approaches; when someone asks \"should we use X or Y?\", \"what's the best way to…?\", or \"which option do you recommend?\"; and when a decision needs to be written up for others. Not for detailed architecture work itself (see software-architecture, system-design) or reviewing an existing design (see architecture-review).",
+      "path": "skills/technical-decision-making/SKILL.md",
+      "references": [],
+      "related": [
+        "software-architecture",
+        "system-design",
+        "architecture-review",
+        "estimate-effort",
+        "clarify-requirements",
+        "plan-and-decompose",
+        "dependency-management",
+        "technical-writing"
+      ]
+    },
+    {
+      "name": "using-skills",
+      "category": "meta",
+      "description": "How to route a user request to the right skills in this library, combine several skills for one task, resolve conflicts between a skill and a project's conventions, and work without a skill when none fits. Use when starting a session with this library, when it is unclear which skill applies, when a task spans several domains, or when two skills seem to give conflicting advice.",
+      "path": "skills/using-skills/SKILL.md",
+      "references": [],
+      "related": [
+        "clarify-requirements",
+        "plan-and-decompose",
+        "manage-context",
+        "verify-before-done",
+        "write-new-skill"
+      ]
+    },
+    {
+      "name": "verify-before-done",
+      "category": "meta",
+      "description": "Prove that work actually does what was asked before calling it finished: run the build, tests, and the real thing; inspect actual output instead of assuming it; check edge cases and regressions; compare against the acceptance criteria; and report honestly what was verified, what was only inferred, and what was not checked. Use before saying \"done\", \"fixed\", \"working\", or \"complete\" on any code, data, document, configuration, or analysis — and whenever you are tempted to claim success without having observed it. Use when you are about to report a task as finished, when a fix \"should\" work, or when only some checks could be run. Not for designing a test suite (see testing-strategy) or formal release sign-off (see release-readiness).",
+      "path": "skills/verify-before-done/SKILL.md",
+      "references": [],
+      "related": [
+        "testing-strategy",
+        "report-results",
+        "debugging",
+        "code-review",
+        "release-readiness",
+        "qa-test-planning",
+        "fact-checking",
+        "end-to-end-testing"
+      ]
+    },
+    {
+      "name": "write-new-skill",
+      "category": "meta",
+      "description": "Author a new skill, or substantially improve an existing one, for this library according to docs/SKILL_STANDARD.md: decide whether a new skill is warranted, research the domain, capture real expert judgment rather than generic advice, write a description that routes correctly, structure depth between SKILL.md and references/, keep it style- and model-neutral, and validate it. Use when someone asks to add, write, create, draft, extend, split, or review a skill or playbook in this library, or when a recurring task type has no matching skill. Not for writing general documentation (see technical-writing) or prompts for an application (see prompt-engineering).",
+      "path": "skills/write-new-skill/SKILL.md",
+      "references": [],
+      "related": [
+        "using-skills",
+        "technical-writing",
+        "prompt-engineering",
+        "web-research",
+        "literature-review",
+        "writing-review-and-editing",
+        "clarify-requirements"
+      ]
+    },
+    {
+      "name": "api-design",
+      "category": "development",
+      "description": "Design interfaces between software components that are easy to use correctly, hard to misuse, and safe to evolve: REST/HTTP, GraphQL, gRPC and other RPC, and event/message contracts. Covers resource and operation modelling, naming, request/response shapes, errors, pagination, filtering, idempotency, concurrency control, authentication and authorization at the API surface, rate limiting, versioning, backward compatibility, deprecation, and machine-readable specs (OpenAPI, protobuf, GraphQL SDL, AsyncAPI as examples). Use when creating or changing an endpoint, schema, or message format, reviewing an API proposal, choosing between API styles, planning a breaking change, or writing an API spec. For consuming third-party APIs use api-integrations-and-webhooks; for implementing handlers use backend-development.",
+      "path": "skills/api-design/SKILL.md",
+      "references": [
+        "skills/api-design/references/style-specifics.md"
+      ],
+      "related": [
+        "backend-development",
+        "system-design",
+        "software-architecture",
+        "authentication-and-authorization",
+        "error-handling",
+        "code-documentation",
+        "api-integrations-and-webhooks",
+        "secure-coding",
+        "mcp-server-development"
+      ]
+    },
+    {
+      "name": "authentication-and-authorization",
+      "category": "development",
+      "description": "Design and implement who-are-you and what-may-you-do correctly: choosing between managed identity providers, auth libraries, and custom code; sessions vs. tokens (JWT, opaque, refresh); OAuth 2.0 and OpenID Connect flows (auth code + PKCE, client credentials, device flow); password storage, reset, and account recovery; MFA and passkeys/WebAuthn; API keys and service-to-service auth; RBAC, ABAC, and relationship-based access control; multi-tenant isolation; and the common auth bugs. Use when adding login, signup, SSO, social login, MFA, API authentication, roles and permissions, tenant isolation, or when debugging or reviewing auth code.",
+      "path": "skills/authentication-and-authorization/SKILL.md",
+      "references": [],
+      "related": [
+        "secure-coding",
+        "api-design",
+        "backend-development",
+        "frontend-development",
+        "database-design",
+        "security-audit",
+        "mobile-app-development",
+        "system-design"
+      ]
+    },
+    {
+      "name": "backend-development",
+      "category": "development",
+      "description": "Build and change server-side services in any language or framework: the request lifecycle, input validation, where business logic belongs, transactions and data access, background jobs, configuration and secrets, statelessness, timeouts and resource limits, logging, and testing. Use when implementing an endpoint, handler, worker, or service; adding a feature to a server codebase; wiring up a database or queue; moving work to the background; or making a backend production-ready. For API contract design use api-design; for schema design use database-design; for structure across modules use software-architecture.",
+      "path": "skills/backend-development/SKILL.md",
+      "references": [],
+      "related": [
+        "api-design",
+        "database-design",
+        "sql-and-queries",
+        "software-architecture",
+        "error-handling",
+        "authentication-and-authorization",
+        "secure-coding",
+        "testing-strategy",
+        "observability",
+        "concurrency-and-async"
+      ]
+    },
+    {
+      "name": "cli-development",
+      "category": "development",
+      "description": "Design and build command-line tools people and scripts can rely on: command and subcommand structure, flags and arguments, help text and error messages, exit codes, stdin/stdout/stderr discipline, human vs. machine-readable output (tables, JSON, colour, TTY detection), configuration precedence (flags, env vars, config files), interactivity and prompts, long-running operations, signals, cross-platform behaviour, testing, and packaging/distribution. Use when creating a CLI, adding commands or flags to one, improving help or errors, making output scriptable, or shipping a command-line tool. For one-off shell scripts use scripting-and-shell.",
+      "path": "skills/cli-development/SKILL.md",
+      "references": [],
+      "related": [
+        "scripting-and-shell",
+        "api-design",
+        "error-handling",
+        "testing-strategy",
+        "release-management",
+        "code-documentation",
+        "ux-writing",
+        "project-scaffolding"
+      ]
+    },
+    {
+      "name": "code-documentation",
+      "category": "development",
+      "description": "Write and maintain documentation that lives with code: comments that earn their place, docstrings and doc comments, READMEs, API reference, architecture and decision records, runbook-style operational notes, and changelogs — and keep them true as the code changes, in the project's existing voice and tooling. Use when adding or reviewing comments or docstrings, writing or fixing a README, documenting a module, public API, or design decision, updating a changelog, or when docs have drifted from the code. For a standalone docs website use documentation-site; for long-form prose guides use technical-writing.",
+      "path": "skills/code-documentation/SKILL.md",
+      "references": [],
+      "related": [
+        "technical-writing",
+        "documentation-site",
+        "api-design",
+        "code-review",
+        "release-management",
+        "explore-codebase",
+        "refactoring"
+      ]
+    },
+    {
+      "name": "concurrency-and-async",
+      "category": "development",
+      "description": "Write and debug correct concurrent and asynchronous code: choosing between threads, processes, async/await and event loops, actors, and worker pools; avoiding data races, race conditions, deadlocks, livelocks and starvation; managing shared state with locks, atomics, immutability or message passing; structured concurrency, cancellation and timeouts; backpressure and bounded queues; and testing concurrent code. Use when code runs in parallel or asynchronously, when adding async/await, threads, goroutines, workers or background jobs, when results are nondeterministic, something hangs or deadlocks, an event loop is blocked, or throughput under load is poor. For distributed-system consistency use system-design; for job scheduling use scheduled-jobs.",
+      "path": "skills/concurrency-and-async/SKILL.md",
+      "references": [],
+      "related": [
+        "debugging",
+        "performance-optimization",
+        "error-handling",
+        "testing-strategy",
+        "backend-development",
+        "system-design",
+        "scheduled-jobs",
+        "database-design"
+      ]
+    },
+    {
+      "name": "database-design",
+      "category": "development",
+      "description": "Choose the right kind of data store and design the data model inside it: relational, document, key-value, wide-column, graph, time-series, search, and vector stores; entities and relationships; normalization vs. denormalization; primary and foreign keys; data types; constraints and integrity; indexes for access patterns; multi-tenancy, history, soft deletion, and evolution of the model. Use when starting a schema, adding tables or collections, picking a database, modelling a new feature's data, deciding what to index, fixing integrity problems or duplicated data, or reviewing a data model. For writing and tuning queries use sql-and-queries; for changing a live schema safely use database-migrations.",
+      "path": "skills/database-design/SKILL.md",
+      "references": [
+        "skills/database-design/references/non-relational-modelling.md"
+      ],
+      "related": [
+        "sql-and-queries",
+        "database-migrations",
+        "system-design",
+        "backend-development",
+        "software-architecture",
+        "data-cleaning-and-validation",
+        "performance-optimization",
+        "rag-systems"
+      ]
+    },
+    {
+      "name": "database-migrations",
+      "category": "development",
+      "description": "Change database schemas and data safely in live systems: migration tooling and versioning, expand/contract (parallel change) for zero-downtime deploys, adding/renaming/dropping columns and tables, indexes and constraints without long locks, backfills and data migrations in batches, reversibility and roll-forward, coordinating code and schema deploys, and testing migrations on production-sized data. Use when writing or reviewing a migration, renaming or removing a column, adding an index or NOT NULL constraint to a big table, backfilling data, planning a schema change with no downtime, or recovering from a failed migration.",
+      "path": "skills/database-migrations/SKILL.md",
+      "references": [],
+      "related": [
+        "database-design",
+        "sql-and-queries",
+        "legacy-modernization",
+        "release-management",
+        "ci-cd-pipelines",
+        "backend-development",
+        "incident-response",
+        "etl-pipelines"
+      ]
+    },
+    {
+      "name": "debugging",
+      "category": "development",
+      "description": "Systematically find and fix the root cause of bugs, crashes, wrong output, failing tests, hangs, and intermittent failures in any language or system: reproduce, minimize, form and test hypotheses, bisect, instrument, read error messages and stack traces, handle heisenbugs, fix the cause rather than the symptom, and lock the fix in with a regression test. Use when something is broken, an error or stack trace appears, a test fails, behaviour differs from expectations, or \"it works on my machine\" — before guessing at fixes. For organisational post-incident analysis use root-cause-analysis or postmortem; for live outages use incident-response.",
+      "path": "skills/debugging/SKILL.md",
+      "references": [],
+      "related": [
+        "testing-strategy",
+        "test-driven-development",
+        "root-cause-analysis",
+        "observability",
+        "error-handling",
+        "concurrency-and-async",
+        "performance-optimization",
+        "explore-codebase",
+        "verify-before-done"
+      ]
+    },
+    {
+      "name": "dependency-management",
+      "category": "development",
+      "description": "Choose, add, pin, update, audit, and remove third-party dependencies safely: evaluating packages, semantic versioning and version ranges, lockfiles, reproducible installs, update strategy and automation, vulnerability and licence auditing, supply-chain risk (typosquatting, compromised maintainers, install scripts), vendoring, private registries, and monorepo workspaces. Use when adding a library, bumping versions, fixing a dependency conflict or broken install, responding to a security advisory, reviewing a lockfile diff, setting up dependency update bots, or deciding whether to build vs. depend.",
+      "path": "skills/dependency-management/SKILL.md",
+      "references": [],
+      "related": [
+        "secure-coding",
+        "legacy-modernization",
+        "ci-cd-pipelines",
+        "project-scaffolding",
+        "release-management",
+        "security-audit",
+        "technical-decision-making"
+      ]
+    },
+    {
+      "name": "error-handling",
+      "category": "development",
+      "description": "Design how software detects, reports, propagates, and recovers from failures: exceptions versus result/error types, fail fast versus graceful degradation, validation at boundaries, retries with exponential backoff and jitter, idempotency, timeouts and deadlines, circuit breakers, partial failure, user-facing versus internal error messages, error codes and API error formats, and logging errors usefully without leaking secrets or swallowing them. Use when writing or reviewing error paths, adding retries or timeouts, designing an API's error responses, deciding whether to catch or propagate, or when failures are silent, noisy, or confusing. For finding the cause of a specific bug use debugging; for logging and metrics infrastructure use observability.",
+      "path": "skills/error-handling/SKILL.md",
+      "references": [],
+      "related": [
+        "debugging",
+        "observability",
+        "api-design",
+        "backend-development",
+        "concurrency-and-async",
+        "secure-coding",
+        "api-integrations-and-webhooks",
+        "ux-writing"
+      ]
+    },
+    {
+      "name": "frontend-development",
+      "category": "development",
+      "description": "Build client-side user interfaces in any framework or none: component design and composition, state management, data fetching and caching, routing, forms and validation, loading/empty/error states, performance, accessibility, and faithfully matching an existing design system. Use when implementing a screen, component, or feature in a web (or web-like) UI; choosing where state lives; wiring a UI to an API; fixing a sluggish or janky interface; building forms; or turning a design into working UI code. For visual and UX decisions use ui-design-fundamentals and interaction-design; for page-load audits use web-performance-audit; for whole apps use full-stack-app-build.",
+      "path": "skills/frontend-development/SKILL.md",
+      "references": [],
+      "related": [
+        "ui-design-fundamentals",
+        "design-systems",
+        "accessible-design",
+        "layout-and-responsive-design",
+        "interaction-design",
+        "design-to-code-handoff",
+        "web-performance-audit",
+        "api-design",
+        "testing-strategy",
+        "end-to-end-testing"
+      ]
+    },
+    {
+      "name": "git-workflow",
+      "category": "development",
+      "description": "Use Git well and safely: crafting focused commits and messages, choosing a branching model (trunk-based, feature branches, release branches), rebasing vs. merging, interactive history cleanup, resolving merge and rebase conflicts, recovering lost work with reflog, undoing mistakes, tags, and rules for rewriting or force-pushing shared history. Use when committing, branching, rebasing, merging, untangling a messy history, fixing a botched merge or reset, recovering a deleted branch or commit, cleaning up before a PR, or deciding on a team branching strategy.",
+      "path": "skills/git-workflow/SKILL.md",
+      "references": [],
+      "related": [
+        "pull-request-workflow",
+        "code-review",
+        "release-management",
+        "ci-cd-pipelines",
+        "scripting-and-shell",
+        "secure-coding"
+      ]
+    },
+    {
+      "name": "legacy-modernization",
+      "category": "development",
+      "description": "Safely change, extend, migrate, or replace old, undocumented, or poorly tested systems: code archaeology, characterization tests, finding seams, strangler-fig replacement, incremental migration, framework and language version upgrades, and managing the risk of touching code nobody understands. Use when working in a legacy codebase, inheriting a system with no docs or tests, planning a rewrite or replatforming, upgrading an end-of-life framework/runtime, or when someone says \"nobody knows how this works\" or \"we can't touch that module\".",
+      "path": "skills/legacy-modernization/SKILL.md",
+      "references": [],
+      "related": [
+        "refactoring",
+        "explore-codebase",
+        "testing-strategy",
+        "dependency-management",
+        "database-migrations",
+        "software-architecture",
+        "technical-decision-making",
+        "release-management"
+      ]
+    },
+    {
+      "name": "performance-optimization",
+      "category": "development",
+      "description": "Make software measurably faster or leaner, driven by measurement rather than guesswork: define the goal, profile CPU, memory, I/O and lock contention, find the real hot spot, apply the right fix (algorithmic complexity, data layout, caching, batching, lazy or avoided work, concurrency, database and network round trips), write benchmarks that don't lie, and guard against regressions with budgets. Use when code, queries, services, jobs or builds are slow, use too much memory or CPU, miss latency or throughput targets, cost too much to run, or when asked to \"optimize\", \"speed up\", or \"profile\". For browser page-load and Core Web Vitals audits use web-performance-audit; for SQL tuning specifics see sql-and-queries.",
+      "path": "skills/performance-optimization/SKILL.md",
+      "references": [],
+      "related": [
+        "debugging",
+        "sql-and-queries",
+        "database-design",
+        "concurrency-and-async",
+        "observability",
+        "system-design",
+        "web-performance-audit",
+        "refactoring"
+      ]
+    },
+    {
+      "name": "refactoring",
+      "category": "development",
+      "description": "Change the structure of existing code without changing its behaviour: establishing a safety net, moving in small verified steps, recognising code smells, applying common refactorings (extract, inline, rename, move, replace conditional, introduce parameter object), planning large-scale refactors with branch-by-abstraction, expand-contract and strangler-fig patterns, and judging when not to refactor. Use when code is hard to read or change, before adding a feature to messy code, when cleaning up after getting tests green, when asked to \"clean up\", \"simplify\", \"restructure\", or \"pay down tech debt\". For replacing whole legacy systems use legacy-modernization; for reviewing others' code use code-review.",
+      "path": "skills/refactoring/SKILL.md",
+      "references": [],
+      "related": [
+        "test-driven-development",
+        "testing-strategy",
+        "legacy-modernization",
+        "software-architecture",
+        "code-review",
+        "database-migrations",
+        "git-workflow",
+        "performance-optimization"
+      ]
+    },
+    {
+      "name": "secure-coding",
+      "category": "development",
+      "description": "Write code that resists attack: trust boundaries and input validation, output encoding, injection classes (SQL, command, template, path traversal, LDAP/NoSQL), XSS, CSRF, SSRF, open redirects, insecure deserialization, file upload handling, secrets management, cryptography do's and don'ts, safe error handling and logging, least privilege, and the OWASP Top 10 as a checking lens. Use when writing or changing code that handles untrusted input, user data, files, URLs, credentials, tokens, or crypto; when fixing a vulnerability; or when asked to make code \"secure\". For auditing an existing system use security-audit; for login, sessions, and permissions use authentication-and-authorization.",
+      "path": "skills/secure-coding/SKILL.md",
+      "references": [],
+      "related": [
+        "authentication-and-authorization",
+        "security-audit",
+        "error-handling",
+        "dependency-management",
+        "api-design",
+        "backend-development",
+        "frontend-development",
+        "code-review",
+        "ai-safety-and-guardrails"
+      ]
+    },
+    {
+      "name": "software-architecture",
+      "category": "development",
+      "description": "Structure a codebase so it stays understandable and changeable: modules and boundaries, layering, dependency direction, coupling and cohesion, monolith vs. modular monolith vs. services, when to apply (and when to avoid) common patterns, and how to evolve an architecture incrementally. Use when starting a new codebase, deciding where code should live, splitting or merging modules or services, untangling a \"big ball of mud\", introducing a pattern (hexagonal, CQRS, events, plugins), or when a change keeps touching too many files. For distributed scale and reliability design use system-design; for reviewing an existing design use architecture-review.",
+      "path": "skills/software-architecture/SKILL.md",
+      "references": [],
+      "related": [
+        "system-design",
+        "api-design",
+        "backend-development",
+        "refactoring",
+        "legacy-modernization",
+        "technical-decision-making",
+        "architecture-review",
+        "explore-codebase",
+        "database-design"
+      ]
+    },
+    {
+      "name": "sql-and-queries",
+      "category": "development",
+      "description": "Write SQL that is correct first and fast second, in any dialect: joins and their row-multiplication traps, aggregation and GROUP BY, window functions, CTEs and subqueries, NULL and three-valued logic, set operations, upserts, pagination, transactions and locking in queries, reading query plans, indexing for specific queries, fixing N+1 access from application code, and safe parameterised queries. Use when writing or reviewing a query, a report, or ORM code that generates SQL; when a query returns wrong counts or duplicates; when a query is slow; when reading an EXPLAIN plan; or when porting SQL between engines. For schema and table design use database-design; for schema changes use database-migrations.",
+      "path": "skills/sql-and-queries/SKILL.md",
+      "references": [
+        "skills/sql-and-queries/references/dialect-differences.md",
+        "skills/sql-and-queries/references/query-plans-and-indexing.md"
+      ],
+      "related": [
+        "database-design",
+        "database-migrations",
+        "performance-optimization",
+        "backend-development",
+        "data-analysis",
+        "secure-coding",
+        "debugging"
+      ]
+    },
+    {
+      "name": "system-design",
+      "category": "development",
+      "description": "Design distributed systems that meet scale, latency, and reliability goals: gather functional and non-functional requirements, estimate capacity, shape data flow, and choose caching, queues, replication, partitioning, and consistency models while reasoning explicitly about failure modes and trade-offs. Use when designing a new service or platform, preparing for growth (more users, data, regions), deciding between sync and async processing, adding a cache or queue, choosing consistency guarantees, writing a design doc, or practising a system-design interview. For code structure inside one service use software-architecture; for provider-specific infrastructure use cloud-architecture.",
+      "path": "skills/system-design/SKILL.md",
+      "references": [
+        "skills/system-design/references/estimation-and-numbers.md"
+      ],
+      "related": [
+        "software-architecture",
+        "database-design",
+        "api-design",
+        "cloud-architecture",
+        "performance-optimization",
+        "observability",
+        "concurrency-and-async",
+        "technical-decision-making",
+        "estimate-effort"
+      ]
+    },
+    {
+      "name": "test-driven-development",
+      "category": "development",
+      "description": "Write code test-first using the red-green-refactor cycle: pick the next smallest test, watch it fail for the right reason, make it pass with the simplest change, then refactor with the tests as a safety net. Covers choosing the next test, fake-it versus obvious implementation versus triangulation, outside-in versus inside-out, characterization tests for untested legacy code, test-first bug fixing, and when TDD helps or doesn't. Use when the user asks for TDD or test-first development, when building well-specified logic, when fixing a bug with a failing test first, or when adding tests around legacy code before changing it. For deciding overall test levels and suite design use testing-strategy.",
+      "path": "skills/test-driven-development/SKILL.md",
+      "references": [],
+      "related": [
+        "testing-strategy",
+        "refactoring",
+        "debugging",
+        "legacy-modernization",
+        "software-architecture",
+        "api-design",
+        "code-review"
+      ]
+    },
+    {
+      "name": "testing-strategy",
+      "category": "development",
+      "description": "Decide what to test, at which level, and how: unit, integration, contract, end-to-end, property-based, snapshot and exploratory testing; test pyramid versus testing trophy trade-offs; mocks, stubs, fakes and other test doubles; test data and fixtures; flaky tests; and using coverage as a signal rather than a goal. Use when designing or reviewing a test suite, adding tests to a feature, choosing between test types, fixing a slow or flaky suite, or asking \"how should we test this?\". For the red-green-refactor workflow itself use test-driven-development; for test plans for a release use qa-test-planning; for browser E2E mechanics use end-to-end-testing.",
+      "path": "skills/testing-strategy/SKILL.md",
+      "references": [],
+      "related": [
+        "test-driven-development",
+        "end-to-end-testing",
+        "qa-test-planning",
+        "debugging",
+        "refactoring",
+        "ci-cd-pipelines",
+        "api-design",
+        "code-review"
+      ]
+    },
+    {
+      "name": "ci-cd-pipelines",
+      "category": "devops",
+      "description": "Design, build, speed up, and repair continuous integration and delivery pipelines on any CI system (e.g. GitHub Actions, GitLab CI, Jenkins, CircleCI, Buildkite, Azure Pipelines): stages, caching, parallelism, artifacts, environments and promotion, secrets, deployment strategies (rolling, blue/green, canary), and pipeline speed and flakiness. Use when someone asks to set up CI, add a deploy step, make the build faster, fix a flaky or broken pipeline, add caching, gate deploys on tests, or choose a deployment strategy. Not for writing the tests themselves or for versioning and release planning.",
+      "path": "skills/ci-cd-pipelines/SKILL.md",
+      "references": [],
+      "related": [
+        "testing-strategy",
+        "containerization",
+        "infrastructure-as-code",
+        "release-management",
+        "release-readiness",
+        "secure-coding",
+        "git-workflow",
+        "kubernetes"
+      ]
+    },
+    {
+      "name": "cloud-architecture",
+      "category": "devops",
+      "description": "Design and review systems on public clouds (AWS, Google Cloud, Azure, and smaller providers alike): choosing compute (VMs, containers, managed container platforms, serverless), managed data and messaging services, network topology, identity and access (IAM), multi-AZ and multi-region resilience, disaster recovery targets, cost management, well-architected trade-offs, and vendor lock-in. Use when someone asks how to host or deploy an app on the cloud, which cloud service to use, how to make a system highly available, how to cut a cloud bill, how to structure accounts, VPCs, or IAM, or whether to go multi-cloud or serverless. Not for writing the infrastructure code itself (see infrastructure-as-code) or application-level system design.",
+      "path": "skills/cloud-architecture/SKILL.md",
+      "references": [],
+      "related": [
+        "system-design",
+        "software-architecture",
+        "infrastructure-as-code",
+        "kubernetes",
+        "containerization",
+        "observability",
+        "secure-coding",
+        "authentication-and-authorization",
+        "technical-decision-making",
+        "architecture-review"
+      ]
+    },
+    {
+      "name": "containerization",
+      "category": "devops",
+      "description": "Write, review, and optimise container images and local container setups: Dockerfiles/Containerfiles, base image choice, layer ordering and build caching, multi-stage builds, image size, running as non-root, signals and PID 1, health checks, configuration via environment, Compose for local development, and image scanning and signing. Use when someone asks to dockerize an app, write or fix a Dockerfile, shrink an image, speed up docker builds, set up docker-compose for local dev, harden a container, or fix a container that works locally but not in production. Not for orchestrating containers in a cluster (see kubernetes).",
+      "path": "skills/containerization/SKILL.md",
+      "references": [],
+      "related": [
+        "kubernetes",
+        "ci-cd-pipelines",
+        "secure-coding",
+        "dependency-management",
+        "cloud-architecture",
+        "project-scaffolding"
+      ]
+    },
+    {
+      "name": "incident-response",
+      "category": "devops",
+      "description": "Handle a live production incident from first alert to resolution: confirming impact, declaring and classifying severity, assigning roles (incident commander, operations, communications), communicating with stakeholders and customers, mitigating before diagnosing (rollback, failover, feature-flag off, scaling, shedding load), keeping a timeline, handing over between responders, and handing off to a postmortem. Use when something is down, broken, or degraded in production right now, an alert has fired, users are reporting errors or outages, a deploy just broke something, data may be corrupted or leaking, or someone asks for help running or setting up an incident process and on-call. Not for the after-the-fact analysis (see postmortem) or for ordinary bug fixing.",
+      "path": "skills/incident-response/SKILL.md",
+      "references": [],
+      "related": [
+        "observability",
+        "postmortem",
+        "root-cause-analysis",
+        "debugging",
+        "release-management",
+        "kubernetes",
+        "ci-cd-pipelines",
+        "business-communication"
+      ]
+    },
+    {
+      "name": "infrastructure-as-code",
+      "category": "devops",
+      "description": "Define, change, and review cloud and platform infrastructure as code with tools such as Terraform, OpenTofu, Pulumi, CloudFormation, CDK, Bicep, Crossplane, or Ansible: state management and locking, modules, environment separation, plan review, drift detection, secrets, blast radius, refactoring without destroying resources, and importing existing infrastructure. Use when someone asks to write or modify Terraform/Pulumi/CloudFormation, review a plan, set up remote state, structure modules or environments, import click-ops resources, fix drift or state errors, or safely rename or move resources. Not for choosing which cloud services to use (see cloud-architecture) or for app deployment pipelines.",
+      "path": "skills/infrastructure-as-code/SKILL.md",
+      "references": [],
+      "related": [
+        "cloud-architecture",
+        "ci-cd-pipelines",
+        "kubernetes",
+        "secure-coding",
+        "git-workflow",
+        "code-review",
+        "dependency-management"
+      ]
+    },
+    {
+      "name": "kubernetes",
+      "category": "devops",
+      "description": "Deploy, configure, operate, and debug workloads on Kubernetes (any distribution or managed service, e.g. EKS, GKE, AKS, OpenShift, k3s): Deployments, StatefulSets, Jobs, Services, Ingress/Gateway, ConfigMaps and Secrets, resource requests and limits, liveness/readiness/startup probes, autoscaling, rollouts and rollbacks, disruption budgets, RBAC, manifests with Helm or Kustomize, and debugging pods that crash, hang, or will not schedule. Also covers when not to use Kubernetes at all. Use when someone asks to deploy to k8s, write manifests or a Helm chart, fix CrashLoopBackOff, Pending, OOMKilled, or ImagePullBackOff, tune probes or resources, set up ingress, or decide whether they need Kubernetes.",
+      "path": "skills/kubernetes/SKILL.md",
+      "references": [],
+      "related": [
+        "containerization",
+        "ci-cd-pipelines",
+        "infrastructure-as-code",
+        "cloud-architecture",
+        "observability",
+        "incident-response",
+        "release-management"
+      ]
+    },
+    {
+      "name": "observability",
+      "category": "devops",
+      "description": "Instrument and monitor software so its behaviour in production can be understood and acted on: structured logging, metrics, distributed tracing (e.g. OpenTelemetry), what to instrument, SLIs, SLOs and error budgets, dashboards, alerting that pages on user-facing symptoms rather than causes, cardinality, sampling, retention, and observability cost. Use when someone asks to add logging, metrics, or tracing, set up monitoring or dashboards, define SLOs, reduce alert noise or pager fatigue, figure out why they could not see a problem coming, or cut a logging/monitoring bill. Not for handling a live outage (see incident-response) or for one-off debugging of a known bug (see debugging).",
+      "path": "skills/observability/SKILL.md",
+      "references": [],
+      "related": [
+        "incident-response",
+        "debugging",
+        "performance-optimization",
+        "error-handling",
+        "postmortem",
+        "kubernetes",
+        "cloud-architecture",
+        "dashboard-building"
+      ]
+    },
+    {
+      "name": "release-management",
+      "category": "devops",
+      "description": "Plan and run how software changes reach users: versioning schemes (SemVer, CalVer, build numbers), changelogs and release notes, release trains versus continuous delivery, release branches and tags, feature flags and decoupling deploy from release, staged and percentage rollouts, rollback and roll-forward plans, coordinating database migrations and API changes with releases, deprecations, and hotfixes. Use when someone asks how to version or tag a release, write a changelog, set up a release process or cadence, ship a risky feature safely, roll out gradually, plan a rollback, sequence a migration with a deploy, deprecate an API, or ship an urgent hotfix. Not for building the pipeline mechanics (see ci-cd-pipelines) or for a go/no-go review of one specific release (see release-readiness).",
+      "path": "skills/release-management/SKILL.md",
+      "references": [],
+      "related": [
+        "ci-cd-pipelines",
+        "release-readiness",
+        "git-workflow",
+        "database-migrations",
+        "api-design",
+        "dependency-management",
+        "incident-response",
+        "code-documentation"
+      ]
+    },
+    {
+      "name": "ai-agents-and-tool-use",
+      "category": "ai-ml",
+      "description": "Design, build, and debug LLM agents and tool-using systems: deciding between a fixed workflow and an autonomous agent, the agent loop and its stopping conditions, designing tools (names, schemas, descriptions, return values, error messages), planning, short- and long-term memory, multi-agent orchestration and delegation, human-in-the-loop approval, guardrails on actions, cost and runaway control, and tracing. Use when building an agent, giving a model function or tool calling, writing tool definitions, orchestrating sub-agents, or when an agent loops, picks the wrong tool, hallucinates tool arguments, or takes unsafe actions. For MCP server specifics use mcp-server-development; for general LLM plumbing use llm-application-development.",
+      "path": "skills/ai-agents-and-tool-use/SKILL.md",
+      "references": [],
+      "related": [
+        "llm-application-development",
+        "prompt-engineering",
+        "mcp-server-development",
+        "ai-safety-and-guardrails",
+        "llm-evaluation",
+        "rag-systems",
+        "workflow-automation",
+        "api-design",
+        "observability"
+      ]
+    },
+    {
+      "name": "ai-safety-and-guardrails",
+      "category": "ai-ml",
+      "description": "Threat-model and harden LLM applications and agents against misuse and failure: direct and indirect prompt injection, jailbreaks, system prompt and data leakage, PII handling, insecure output handling, excessive agency, moderation of inputs and outputs, output validation, least-privilege tool access, human confirmation for consequential actions, rate limiting and abuse prevention, red-teaming, and incident response for AI features. Use when shipping a chatbot, agent, RAG system, or any feature that sends user or third-party content to a model; when asked to add guardrails, content filters, or safety checks; when reviewing an AI feature's security; or after a model said or did something it should not have. For general application security use secure-coding; for audits of non-AI systems use security-audit.",
+      "path": "skills/ai-safety-and-guardrails/SKILL.md",
+      "references": [],
+      "related": [
+        "llm-application-development",
+        "ai-agents-and-tool-use",
+        "mcp-server-development",
+        "rag-systems",
+        "prompt-engineering",
+        "llm-evaluation",
+        "secure-coding",
+        "security-audit",
+        "authentication-and-authorization",
+        "incident-response"
+      ]
+    },
+    {
+      "name": "fine-tuning-models",
+      "category": "ai-ml",
+      "description": "Decide whether to fine-tune a language or other foundation model versus improving prompts or adding retrieval, and if so, carry it out well: collecting, cleaning, and formatting training data, supervised fine-tuning, parameter-efficient methods such as LoRA, preference tuning, distillation from a larger model, hyperparameters at a practical level, evaluation against the base model and a prompted baseline, detecting overfitting and capability loss, deployment, and cost. Use when someone asks \"should we fine-tune?\", wants a model to follow a format, style, or domain behaviour more reliably, wants to shrink cost by moving to a smaller tuned model, is preparing a training dataset, or a fine-tuned model underperforms. For classic ML training use machine-learning-workflow.",
+      "path": "skills/fine-tuning-models/SKILL.md",
+      "references": [],
+      "related": [
+        "prompt-engineering",
+        "rag-systems",
+        "llm-evaluation",
+        "machine-learning-workflow",
+        "data-cleaning-and-validation",
+        "llm-application-development",
+        "ai-safety-and-guardrails"
+      ]
+    },
+    {
+      "name": "llm-application-development",
+      "category": "ai-ml",
+      "description": "Design and build production software on top of large language model APIs from any vendor or self-hosted runtime: application architecture, model selection and routing, streaming, structured output and validation, tool calling, context-window management, prompt and response caching, cost and latency budgets, retries, timeouts, fallbacks between providers, logging, tracing, and data handling. Use when building or reviewing a feature, API, or product that calls an LLM, choosing a model or provider, wiring an SDK, fixing slow or expensive LLM calls, handling rate limits, or adding observability to an AI feature. For the prompt text itself use prompt-engineering; for retrieval use rag-systems; for autonomous loops use ai-agents-and-tool-use.",
+      "path": "skills/llm-application-development/SKILL.md",
+      "references": [],
+      "related": [
+        "prompt-engineering",
+        "rag-systems",
+        "ai-agents-and-tool-use",
+        "llm-evaluation",
+        "ai-safety-and-guardrails",
+        "chatbot-and-conversational-apps",
+        "backend-development",
+        "error-handling",
+        "observability",
+        "api-integrations-and-webhooks"
+      ]
+    },
+    {
+      "name": "llm-evaluation",
+      "category": "ai-ml",
+      "description": "Build evaluations that tell you whether an LLM feature, prompt, model, RAG pipeline, or agent is actually good and whether a change made it better or worse: defining success criteria, building golden and adversarial test sets, code-based checks, rubric scoring, LLM-as-judge with its known biases and calibration against humans, pairwise comparisons, regression suites in CI, online metrics and user feedback, error analysis, and handling sampling noise and statistical significance. Use when someone asks \"is this prompt better?\", \"which model should we use?\", wants evals or a benchmark for an AI feature, needs to catch regressions, or is shipping LLM output without a way to measure it. For classic supervised-model metrics use machine-learning-workflow.",
+      "path": "skills/llm-evaluation/SKILL.md",
+      "references": [],
+      "related": [
+        "prompt-engineering",
+        "llm-application-development",
+        "rag-systems",
+        "ai-agents-and-tool-use",
+        "statistical-analysis",
+        "experiment-design",
+        "testing-strategy",
+        "machine-learning-workflow"
+      ]
+    },
+    {
+      "name": "machine-learning-workflow",
+      "category": "ai-ml",
+      "description": "Run a classic machine learning project end to end on tabular, text, image, or time-series data: framing the business problem as a prediction task, establishing baselines, splitting data correctly and preventing leakage, feature engineering, choosing model families, picking metrics that match the decision, validation and hyperparameter tuning, error analysis, experiment tracking and reproducibility, deployment for batch or real-time inference, and monitoring for data and concept drift. Use when building a classifier, regressor, forecaster, ranker, or anomaly detector; when a model scores well offline but fails in production; when choosing metrics or validation schemes; or when productionising a notebook model. For LLM-based features use llm-application-development; for training or adapting LLMs use fine-tuning-models.",
+      "path": "skills/machine-learning-workflow/SKILL.md",
+      "references": [],
+      "related": [
+        "data-analysis",
+        "data-cleaning-and-validation",
+        "statistical-analysis",
+        "experiment-design",
+        "fine-tuning-models",
+        "llm-evaluation",
+        "etl-pipelines",
+        "observability",
+        "data-visualization"
+      ]
+    },
+    {
+      "name": "mcp-server-development",
+      "category": "ai-ml",
+      "description": "Build, test, secure, and ship Model Context Protocol (MCP) servers and clients that expose tools, resources, and prompts to LLM applications: choosing between tools, resources, and prompts; picking a transport (stdio for local, HTTP-based for remote); designing tool names, input schemas, descriptions, and results; error handling; authentication and authorisation for remote servers; testing with inspector tools and real hosts; and limiting the blast radius of exposed actions. Use when someone wants to \"build an MCP server\", wrap an API or database for an AI assistant, connect a tool to an MCP-capable host, debug an MCP server that will not connect or whose tools the model misuses, or review an MCP server's security. For general tool and agent design use ai-agents-and-tool-use.",
+      "path": "skills/mcp-server-development/SKILL.md",
+      "references": [],
+      "related": [
+        "ai-agents-and-tool-use",
+        "api-design",
+        "authentication-and-authorization",
+        "secure-coding",
+        "ai-safety-and-guardrails",
+        "api-integrations-and-webhooks",
+        "cli-development",
+        "llm-application-development"
+      ]
+    },
+    {
+      "name": "prompt-engineering",
+      "category": "ai-ml",
+      "description": "Write, debug, and improve prompts and system prompts for any large language model: giving clear instructions and context, choosing a role, adding few-shot examples, structuring long prompts with delimited sections, controlling output format, deciding when to ask for step-by-step reasoning, iterating against test cases, and hardening prompts against injection from untrusted input. Use when someone asks to write or fix a prompt, a system prompt, an instruction block for an agent or tool, a classification or extraction prompt, or says \"the model keeps ignoring X\", \"make the output consistent\", or \"why does it do Y\". Not for building the surrounding application (llm-application-development) or measuring quality at scale (llm-evaluation).",
+      "path": "skills/prompt-engineering/SKILL.md",
+      "references": [],
+      "related": [
+        "llm-application-development",
+        "llm-evaluation",
+        "ai-agents-and-tool-use",
+        "ai-safety-and-guardrails",
+        "rag-systems",
+        "technical-writing",
+        "chatbot-and-conversational-apps"
+      ]
+    },
+    {
+      "name": "rag-systems",
+      "category": "ai-ml",
+      "description": "Design, build, debug, and evaluate retrieval-augmented generation systems that answer questions from documents, knowledge bases, codebases, or databases: ingestion and parsing, chunking strategy, embeddings, vector and keyword (hybrid) search, reranking, metadata and permission filters, query rewriting, prompt assembly with citations, freshness and re-indexing, and separate evaluation of retrieval and answer quality. Use when building \"chat with your docs\", semantic search, a knowledge-base assistant, grounding an LLM in private data, or when a RAG system returns wrong, missing, stale, or uncited answers. Also covers deciding when RAG is the wrong tool. For the general LLM app plumbing use llm-application-development; for scoring use llm-evaluation.",
+      "path": "skills/rag-systems/SKILL.md",
+      "references": [],
+      "related": [
+        "llm-application-development",
+        "prompt-engineering",
+        "llm-evaluation",
+        "ai-safety-and-guardrails",
+        "etl-pipelines",
+        "database-design",
+        "data-cleaning-and-validation",
+        "chatbot-and-conversational-apps"
+      ]
+    },
+    {
+      "name": "browser-extension-development",
+      "category": "app-generation",
+      "description": "Design, build, test and publish browser extensions (Chrome, Edge, Firefox, Safari and other WebExtensions-based browsers): manifest and permissions, background service workers, content scripts, popups, side panels and options pages, message passing, storage, cross-browser differences, store review and extension security. Use when someone asks to make a browser extension, add-on or plugin, a Chrome/Firefox extension, a content script that modifies pages, a toolbar popup, migrate to Manifest V3, fix an extension that stopped working, or get an extension through store review.",
+      "path": "skills/browser-extension-development/SKILL.md",
+      "references": [
+        "skills/browser-extension-development/references/cross-browser-matrix.md",
+        "skills/browser-extension-development/references/store-review-checklist.md"
+      ],
+      "related": [
+        "frontend-development",
+        "secure-coding",
+        "interaction-design",
+        "end-to-end-testing",
+        "release-management",
+        "web-scraping",
+        "browser-automation",
+        "project-scaffolding"
+      ]
+    },
+    {
+      "name": "chatbot-and-conversational-apps",
+      "category": "app-generation",
+      "description": "Design and build chatbots, virtual assistants and voice or messaging applications end to end: conversation design, choosing between scripted flows, intent classification and LLM-driven dialogue, conversation state and memory, turn-taking, clarification, fallback and escalation to humans, channel constraints (web chat widgets, SMS, WhatsApp and chat platforms like Slack/Teams/Discord, voice/IVR), safety, analytics and evaluation. Use when someone wants to build a chatbot, support bot, assistant, conversational interface, Slack/Discord/Teams bot, SMS or WhatsApp bot, voice assistant or phone bot, or to fix a bot that misunderstands users, loops, or hands off badly.",
+      "path": "skills/chatbot-and-conversational-apps/SKILL.md",
+      "references": [
+        "skills/chatbot-and-conversational-apps/references/conversation-design-patterns.md"
+      ],
+      "related": [
+        "llm-application-development",
+        "prompt-engineering",
+        "rag-systems",
+        "ai-agents-and-tool-use",
+        "llm-evaluation",
+        "ai-safety-and-guardrails",
+        "ux-writing",
+        "interaction-design",
+        "api-integrations-and-webhooks",
+        "observability"
+      ]
+    },
+    {
+      "name": "desktop-app-development",
+      "category": "app-generation",
+      "description": "Build and ship desktop applications for Windows, macOS and Linux: choose between native toolkits, web-technology shells (e.g. Electron, Tauri) and cross-platform UI toolkits (e.g. Qt, .NET MAUI/Avalonia, Flutter desktop) by constraints; integrate with the OS (menus, shortcuts, file associations, tray, notifications, drag and drop); follow per-OS conventions; handle the file system and security boundaries correctly; and package, code-sign, notarize and auto-update the app. Use when asked to build a desktop app, wrap a web app for the desktop, add installers, signing or auto-update, fix \"app is damaged / unidentified developer / SmartScreen\" warnings, or port a desktop app between operating systems. Not for command-line tools (cli-development), browser extensions (browser-extension-development), or games (game-development).",
+      "path": "skills/desktop-app-development/SKILL.md",
+      "references": [],
+      "related": [
+        "full-stack-app-build",
+        "frontend-development",
+        "secure-coding",
+        "interaction-design",
+        "accessible-design",
+        "performance-optimization",
+        "testing-strategy",
+        "end-to-end-testing",
+        "release-management",
+        "ci-cd-pipelines",
+        "dependency-management",
+        "cli-development"
+      ]
+    },
+    {
+      "name": "documentation-site",
+      "category": "app-generation",
+      "description": "Plan, build and maintain a documentation website for a product, API, library, platform or internal system: information architecture (tutorials, how-to guides, reference, explanation), choosing a static site generator or hosted docs platform, navigation and search, versioning for multiple releases, generated API reference, code samples that are tested and actually run, docs-as-code workflow with review, previews, link checking and CI, plus accessibility, internationalisation and analytics. Use when someone asks to create a docs site, developer portal, knowledge base, handbook site, migrate docs to a new generator, add versioning or search to docs, or fix docs that users cannot navigate or that have drifted from the product.",
+      "path": "skills/documentation-site/SKILL.md",
+      "references": [],
+      "related": [
+        "technical-writing",
+        "code-documentation",
+        "information-architecture",
+        "api-design",
+        "ci-cd-pipelines",
+        "seo",
+        "accessible-design",
+        "website-and-landing-pages",
+        "ux-writing",
+        "release-management"
+      ]
+    },
+    {
+      "name": "full-stack-app-build",
+      "category": "app-generation",
+      "description": "Generate a complete, working full-stack application from a description: capture requirements, choose a stack by constraints rather than taste, design the data model first, build in vertical slices, add authentication, seed realistic data, run it end to end, define a deploy path, and hand it over with clear run instructions. Use when asked to \"build an app\", \"make me a web app that...\", \"create a SaaS / CRUD / internal tool / portal\", or to turn a spec or idea into a running product with a frontend, backend and database. Not for throwaway idea tests (mvp-prototyping), static marketing sites (website-and-landing-pages), or native mobile/desktop clients.",
+      "path": "skills/full-stack-app-build/SKILL.md",
+      "references": [],
+      "related": [
+        "clarify-requirements",
+        "plan-and-decompose",
+        "project-scaffolding",
+        "software-architecture",
+        "database-design",
+        "api-design",
+        "frontend-development",
+        "backend-development",
+        "authentication-and-authorization",
+        "testing-strategy",
+        "end-to-end-testing",
+        "verify-before-done",
+        "ci-cd-pipelines",
+        "mvp-prototyping"
+      ]
+    },
+    {
+      "name": "game-development",
+      "category": "app-generation",
+      "description": "Plan and build playable games — 2D or 3D, browser, desktop, mobile or console — from first prototype to shippable build: choosing an engine, framework or from-scratch approach, the game loop and timing, state and scene management, input, rendering, physics and collision basics, game feel, audio, asset pipeline, save data, scope control, playtesting and performance. Use when someone asks to make a game, prototype a game mechanic, build a game jam entry, add a feature to an existing game, fix jittery movement or frame-rate problems, choose between engines, or make a game \"feel better\".",
+      "path": "skills/game-development/SKILL.md",
+      "references": [
+        "skills/game-development/references/multiplayer-orientation.md"
+      ],
+      "related": [
+        "mvp-prototyping",
+        "interaction-design",
+        "motion-design",
+        "performance-optimization",
+        "software-architecture",
+        "testing-strategy",
+        "frontend-development",
+        "desktop-app-development",
+        "mobile-app-development",
+        "project-scaffolding"
+      ]
+    },
+    {
+      "name": "mobile-app-development",
+      "category": "app-generation",
+      "description": "Build mobile applications for iOS and Android: choose native vs cross-platform by constraints, follow each platform's navigation and interaction conventions, design for offline use and data sync, request permissions in context, implement push notifications, manage performance, battery and app size, meet app store review and privacy requirements, and test on real devices. Use when asked to build, extend or ship a phone or tablet app, choose between Swift/Kotlin and cross-platform frameworks (e.g. React Native, Flutter), add offline mode, push, deep links or in-app purchases, or prepare an app for store submission. Not for mobile-friendly websites (website-and-landing-pages, layout-and-responsive-design) or the backend alone (backend-development, full-stack-app-build).",
+      "path": "skills/mobile-app-development/SKILL.md",
+      "references": [],
+      "related": [
+        "full-stack-app-build",
+        "frontend-development",
+        "api-design",
+        "authentication-and-authorization",
+        "interaction-design",
+        "accessible-design",
+        "performance-optimization",
+        "testing-strategy",
+        "end-to-end-testing",
+        "release-management",
+        "secure-coding",
+        "ci-cd-pipelines"
+      ]
+    },
+    {
+      "name": "mvp-prototyping",
+      "category": "app-generation",
+      "description": "Build the smallest thing that tests an idea: identify the riskiest assumption, decide what to fake and what to make real, choose throwaway vs evolvable code on purpose, time-box the build, make it demo-able, and document what was deliberately skipped. Use when asked for an MVP, a prototype, a proof of concept, a spike, a demo for investors or users, \"a quick version to see if this works\", a hackathon build, or a clickable mock to validate demand or feasibility before investing in a full build. Not for production-grade applications (full-stack-app-build) or design-only mockups with no working logic (wireframing-and-prototyping).",
+      "path": "skills/mvp-prototyping/SKILL.md",
+      "references": [],
+      "related": [
+        "full-stack-app-build",
+        "product-requirements",
+        "experiment-design",
+        "wireframing-and-prototyping",
+        "ux-research",
+        "roadmap-and-prioritization",
+        "estimate-effort",
+        "project-scaffolding",
+        "technical-decision-making",
+        "usability-evaluation"
+      ]
+    },
+    {
+      "name": "project-scaffolding",
+      "category": "app-generation",
+      "description": "Start a new software repository well: choose a language toolchain and package manager from the real constraints, lay out directories for the project type (library, CLI, service, web app, monorepo), and set up formatting, linting, type checking, tests, CI, environment configuration, scripts, README, licence and ignore files from day one — the minimum that pays off, not every tool available. Use when someone says \"start a new project\", \"set up a repo\", \"bootstrap\", \"scaffold\", \"initialize\", \"create a starter\", \"what should my folder structure be\", or needs to add missing foundations (tests, lint, CI, env handling) to a young repository.",
+      "path": "skills/project-scaffolding/SKILL.md",
+      "references": [],
+      "related": [
+        "full-stack-app-build",
+        "mvp-prototyping",
+        "dependency-management",
+        "ci-cd-pipelines",
+        "git-workflow",
+        "testing-strategy",
+        "code-documentation",
+        "technical-decision-making",
+        "cli-development",
+        "containerization",
+        "secure-coding"
+      ]
+    },
+    {
+      "name": "website-and-landing-pages",
+      "category": "app-generation",
+      "description": "Build content-first websites and marketing pages: define the goal and audience, structure pages and visual hierarchy around one primary action, write or place real content before styling, choose static vs CMS vs framework by who edits it and how often, and ship it fast, responsive, accessible and indexable, with working forms and analytics. Visual direction is derived from the brand and audience, never a default look. Use when asked for a landing page, homepage, marketing site, product or launch page, portfolio, small-business or event site, waitlist page, or a redesign of an existing site. Not for web applications with accounts and app logic (full-stack-app-build), documentation portals (documentation-site), or deep SEO strategy (seo).",
+      "path": "skills/website-and-landing-pages/SKILL.md",
+      "references": [],
+      "related": [
+        "copywriting",
+        "seo",
+        "visual-design",
+        "layout-and-responsive-design",
+        "accessible-design",
+        "information-architecture",
+        "frontend-development",
+        "web-performance-audit",
+        "ux-writing",
+        "documentation-site",
+        "design-systems"
+      ]
+    },
+    {
+      "name": "competitive-analysis",
+      "category": "analysis",
+      "description": "Map and analyse competitors and alternatives for a product, service, or business: defining the market and the customer's job to be done, finding direct, indirect, and substitute competitors (including \"do nothing\" and in-house solutions), comparing features, positioning, pricing, go-to-market, and strengths and weaknesses from defensible sources, avoiding confirmation bias, and turning findings into implications and decisions. Use when asked for a competitive analysis, competitor landscape, market map, \"who else does this\", \"how do we compare to X\", feature or pricing comparison, positioning or differentiation work, battlecards, or win/loss context. For general fact finding use web-research; for prioritising what to build use roadmap-and-prioritization; for SEO competitor work use seo.",
+      "path": "skills/competitive-analysis/SKILL.md",
+      "references": [],
+      "related": [
+        "web-research",
+        "ux-research",
+        "product-requirements",
+        "roadmap-and-prioritization",
+        "financial-modeling",
+        "copywriting",
+        "presentations",
+        "seo"
+      ]
+    },
+    {
+      "name": "dashboard-building",
+      "category": "analysis",
+      "description": "Design and build dashboards that people actually use: start from the audience and the decisions they make, define every metric precisely, lay out by priority, choose filters and drill-downs deliberately, show freshness and data quality, keep it fast, and pick the tool (BI platform, notebook app, custom code, spreadsheet) by constraint. Use when someone asks for a dashboard, KPI view, metrics page, monitoring or reporting screen, executive scorecard, an admin analytics page in an app, or wants an existing dashboard fixed because it is slow, ignored, cluttered or untrusted — in Looker, Power BI, Tableau, Metabase, Superset, Grafana, Streamlit, a web framework or a spreadsheet. For single charts see data-visualization; for a one-off answer see data-analysis.",
+      "path": "skills/dashboard-building/SKILL.md",
+      "references": [],
+      "related": [
+        "data-visualization",
+        "data-analysis",
+        "sql-and-queries",
+        "frontend-development",
+        "observability",
+        "etl-pipelines",
+        "information-architecture",
+        "accessible-design"
+      ]
+    },
+    {
+      "name": "data-analysis",
+      "category": "analysis",
+      "description": "Answer real questions with data: frame the question as a decision, establish the data's provenance, grain and coverage, explore before concluding, segment and compare like with like, reason about confounders and selection effects, and report findings with honest uncertainty and caveats. Use when someone asks \"why did X change\", \"what drives Y\", \"is A better than B\", \"how many / how much\", wants insights from a dataset, a metric investigation, a funnel or cohort analysis, or an ad-hoc analytical answer — in SQL, pandas, R, a spreadsheet or a BI tool. Not for choosing statistical tests (see statistical-analysis), cleaning raw data (data-cleaning-and-validation), designing experiments (experiment-design), or building a recurring dashboard (dashboard-building).",
+      "path": "skills/data-analysis/SKILL.md",
+      "references": [],
+      "related": [
+        "statistical-analysis",
+        "data-cleaning-and-validation",
+        "data-visualization",
+        "sql-and-queries",
+        "experiment-design",
+        "root-cause-analysis",
+        "report-results",
+        "clarify-requirements"
+      ]
+    },
+    {
+      "name": "data-cleaning-and-validation",
+      "category": "analysis",
+      "description": "Profile, clean and validate data so it can be trusted: establish types and grain, handle missing values, duplicates and outliers, catch joins that multiply rows, fix encoding and unicode problems, normalise dates, timezones and units, write validation rules and data contracts, and document every transformation reproducibly. Use when data is messy, imported from CSV, Excel, APIs or scraped sources, numbers don't reconcile, a join produces too many rows, someone asks to \"clean\", \"dedupe\", \"validate\", \"standardise\" or \"check the quality of\" a dataset, or before any analysis on unfamiliar data. Works in SQL, pandas, R, spreadsheets or pipeline tools. Not for building scheduled pipelines (etl-pipelines) or schema design (database-design).",
+      "path": "skills/data-cleaning-and-validation/SKILL.md",
+      "references": [],
+      "related": [
+        "data-analysis",
+        "etl-pipelines",
+        "sql-and-queries",
+        "statistical-analysis",
+        "text-processing-and-regex",
+        "database-design",
+        "spreadsheet-modeling"
+      ]
+    },
+    {
+      "name": "data-visualization",
+      "category": "analysis",
+      "description": "Turn data into charts that answer a specific question honestly and fast: choose the chart form from the comparison being made, build an encoding hierarchy, use color for meaning (categorical, sequential, diverging) with colorblind safety, label directly, keep axes honest, use small multiples, annotate the insight, and avoid misleading charts — with styling derived from the destination (report, slide, app, publication, brand) rather than a default. Use when someone asks for a chart, graph, plot or figure, which chart type to use, to improve or critique a chart, to pick chart colors, or to visualise results — in any library or tool (matplotlib, ggplot2, Vega, D3, Plotly, Excel, BI tools). For multi-chart monitoring views see dashboard-building; for slide decks see presentations.",
+      "path": "skills/data-visualization/SKILL.md",
+      "references": [],
+      "related": [
+        "data-analysis",
+        "dashboard-building",
+        "statistical-analysis",
+        "presentations",
+        "accessible-design",
+        "visual-design",
+        "design-systems",
+        "technical-writing"
+      ]
+    },
+    {
+      "name": "experiment-design",
+      "category": "analysis",
+      "description": "Design, run and interpret controlled experiments — A/B tests, multivariate and multi-arm tests, holdouts — and quasi-experiments when you cannot randomize: write a falsifiable hypothesis, choose primary, secondary and guardrail metrics, pick the randomization unit, compute power, sample size and duration, avoid peeking, sample-ratio mismatch and novelty effects, and read results honestly. Use when someone wants to \"A/B test\", \"run an experiment\", \"split test\", \"measure the impact of a change\", asks how long a test should run or how many users it needs, wants experiment results interpreted, or needs a difference-in-differences or other causal design from observational data. Not for general statistics questions (statistical-analysis) or exploratory metric analysis (data-analysis).",
+      "path": "skills/experiment-design/SKILL.md",
+      "references": [],
+      "related": [
+        "statistical-analysis",
+        "data-analysis",
+        "product-requirements",
+        "observability",
+        "llm-evaluation",
+        "roadmap-and-prioritization"
+      ]
+    },
+    {
+      "name": "financial-modeling",
+      "category": "analysis",
+      "description": "Build, review, and explain business and financial models: identifying the question the model answers, choosing drivers, unit economics (contribution margin, customer acquisition cost, lifetime value, payback), bottom-up and top-down revenue builds, cost and headcount builds, linking income statement, balance sheet, and cash flow at a conceptual level, working capital and runway, scenarios and sensitivity analysis, documenting assumptions, and sanity checks. Use when asked to build a financial model, forecast, budget, business plan numbers, pricing or unit-economics analysis, runway or burn calculation, break-even, market sizing, or \"what happens to profit if…\". Does not give personalised investment, tax, or legal advice. For spreadsheet mechanics use spreadsheet-modeling; for statistical forecasting methods use statistical-analysis.",
+      "path": "skills/financial-modeling/SKILL.md",
+      "references": [],
+      "related": [
+        "spreadsheet-modeling",
+        "data-analysis",
+        "statistical-analysis",
+        "competitive-analysis",
+        "technical-decision-making",
+        "presentations",
+        "roadmap-and-prioritization",
+        "business-communication"
+      ]
+    },
+    {
+      "name": "literature-review",
+      "category": "analysis",
+      "description": "Survey academic, scientific, or technical literature on a topic and synthesize what is known: defining the review question and type, designing a search strategy across databases and preprint servers, setting inclusion and exclusion criteria, screening, reading papers efficiently, extracting claims together with the strength of their evidence, building a synthesis across studies, identifying gaps and disagreements, and keeping citations accurate. Use when asked for a literature review, related-work section, state of the art, survey of research, systematic or scoping review, \"what does the research say about…\", evidence summary, or annotated bibliography. For general online questions use web-research; for checking specific claims use fact-checking; for analysing a dataset use statistical-analysis.",
+      "path": "skills/literature-review/SKILL.md",
+      "references": [],
+      "related": [
+        "web-research",
+        "fact-checking",
+        "statistical-analysis",
+        "experiment-design",
+        "technical-writing",
+        "writing-review-and-editing",
+        "manage-context",
+        "data-analysis"
+      ]
+    },
+    {
+      "name": "requirements-analysis",
+      "category": "analysis",
+      "description": "Elicit, analyse, and specify requirements for a system, product, feature, process, or procurement: identifying stakeholders and their goals, separating needs from proposed solutions, capturing functional and non-functional (quality) requirements and constraints, modelling use cases and scenarios, finding edge cases and error paths, detecting and resolving conflicts, prioritising, maintaining traceability, and turning vague asks into precise, testable requirements. Use when asked to gather or analyse requirements, write a requirements or specification document, review requirements for gaps, scope a system or integration, prepare acceptance criteria, compare vendor responses against needs, or when stakeholders disagree about what is needed. For quickly clarifying a single task request use clarify-requirements; for product requirement documents use product-requirements; for backlog stories use user-stories.",
+      "path": "skills/requirements-analysis/SKILL.md",
+      "references": [],
+      "related": [
+        "clarify-requirements",
+        "product-requirements",
+        "user-stories",
+        "ux-research",
+        "qa-test-planning",
+        "system-design",
+        "software-architecture",
+        "roadmap-and-prioritization"
+      ]
+    },
+    {
+      "name": "root-cause-analysis",
+      "category": "analysis",
+      "description": "Explain why something went wrong in a system, process, product, or business and identify causes that, if addressed, prevent recurrence: scoping the problem precisely, building an evidence-based timeline, generating and testing hypotheses, using 5 whys, fishbone (cause-and-effect) diagrams, fault trees, and change analysis appropriately and knowing their limits, distinguishing triggers, contributing factors, and systemic causes, and turning findings into verifiable corrective actions. Use when asked \"why did this happen\", \"find the root cause\", \"what caused the drop / spike / failure / outage / defect\", for recurring problems, quality escapes, metric anomalies, process breakdowns, or missed targets. For live outages use incident-response first; for code-level bugs use debugging; for the blameless write-up use postmortem.",
+      "path": "skills/root-cause-analysis/SKILL.md",
+      "references": [],
+      "related": [
+        "debugging",
+        "incident-response",
+        "postmortem",
+        "observability",
+        "data-analysis",
+        "statistical-analysis",
+        "experiment-design",
+        "technical-decision-making"
+      ]
+    },
+    {
+      "name": "spreadsheet-modeling",
+      "category": "analysis",
+      "description": "Build spreadsheets and spreadsheet models that are correct, auditable and survive being edited by other people: separate inputs, calculations and outputs, use formulas instead of hard-coded numbers, name ranges, choose robust lookups, avoid fragile references, build checks and error traps, handle scenarios and sensitivity, document assumptions, and recognise when to move to a database or code. Use when someone asks to build, fix, audit or restructure a spreadsheet, a calculator, a tracker, a budget, a pricing or capacity model, wants help with formulas (lookups, conditional sums, array or dynamic formulas, pivots), or a workbook has become slow, broken or untrustworthy — in Excel, Google Sheets, LibreOffice Calc, Numbers or similar. For valuation, forecasting and three-statement finance models see financial-modeling.",
+      "path": "skills/spreadsheet-modeling/SKILL.md",
+      "references": [],
+      "related": [
+        "financial-modeling",
+        "data-analysis",
+        "data-cleaning-and-validation",
+        "dashboard-building",
+        "workflow-automation",
+        "scripting-and-shell",
+        "data-visualization"
+      ]
+    },
+    {
+      "name": "statistical-analysis",
+      "category": "analysis",
+      "description": "Choose, apply and interpret statistical methods correctly: descriptive statistics, distributions, hypothesis tests, confidence and credible intervals, regression, multiple-comparison corrections, effect sizes versus p-values, assumption checks, resampling, and Bayesian versus frequentist framing. Use when someone asks \"is this difference significant\", \"which test should I use\", \"what's the confidence interval\", \"run a regression\", \"how do I interpret this p-value / coefficient\", needs to quantify uncertainty, or needs a statistical result checked — in R, Python (scipy, statsmodels), spreadsheets or any stats package. Not for framing a business question or exploratory analysis (data-analysis), planning a test before it runs (experiment-design), or predictive model building (machine-learning-workflow).",
+      "path": "skills/statistical-analysis/SKILL.md",
+      "references": [],
+      "related": [
+        "data-analysis",
+        "experiment-design",
+        "data-cleaning-and-validation",
+        "data-visualization",
+        "machine-learning-workflow",
+        "llm-evaluation"
+      ]
+    },
+    {
+      "name": "web-research",
+      "category": "analysis",
+      "description": "Research a question using online sources and produce a sourced, calibrated answer: turning the question into searchable queries, finding primary sources, triangulating claims across independent sources, judging credibility and recency, tracking where each fact came from, synthesizing conflicting evidence, knowing when to stop, and citing properly. Use when asked to \"look up\", \"research\", \"find out\", \"what's the latest on\", \"compare what sources say\", \"find evidence for\", or any question whose answer depends on current or external information rather than reasoning alone. For systematic academic literature use literature-review; for checking a specific existing text use fact-checking; for bulk automated extraction use web-scraping.",
+      "path": "skills/web-research/SKILL.md",
+      "references": [],
+      "related": [
+        "literature-review",
+        "fact-checking",
+        "competitive-analysis",
+        "data-analysis",
+        "report-results",
+        "clarify-requirements",
+        "web-scraping",
+        "technical-writing"
+      ]
+    },
+    {
+      "name": "accessibility-audit",
+      "category": "quality",
+      "description": "Audit an existing website, web app, mobile app, or document (PDF, slides, office files) against the Web Content Accessibility Guidelines (WCAG) and produce a prioritized report of barriers with concrete fixes. Covers automated scanning versus manual testing, keyboard and focus, screen readers, color contrast, forms and errors, motion, zoom and reflow, cognitive load, severity rating, and retesting. Use when asked to \"check accessibility\", \"run an a11y audit\", \"is this WCAG compliant\", \"test with a screen reader\", prepare a conformance report or VPAT/ACR, or review a product before launch or procurement. For designing accessible interfaces from scratch, use accessible-design instead.",
+      "path": "skills/accessibility-audit/SKILL.md",
+      "references": [],
+      "related": [
+        "accessible-design",
+        "usability-evaluation",
+        "frontend-development",
+        "ux-writing",
+        "interaction-design",
+        "qa-test-planning",
+        "end-to-end-testing",
+        "document-generation"
+      ]
+    },
+    {
+      "name": "ai-content-authenticity",
+      "category": "quality",
+      "description": "Review text for generic, formulaic, or AI-sounding patterns — filler phrases, empty intensifiers, false balance, hedging stacks, stock metaphors, listicle and triad structure tics, vague unsupported claims, and tone that sounds like nobody in particular — and revise it into writing that is specific, substantive, accurate, and recognizably the author's own. Focuses on improving substance (concrete detail, real examples, actual positions, verified facts), not on disguising origin or evading detectors. Use when asked to \"make this sound less like AI\", \"less generic\", \"more human\", \"remove the fluff\", \"this sounds robotic/corporate\", review AI-assisted drafts before publishing, or audit content quality. Not for academic dishonesty, passing off work where disclosure is required, or impersonating real people. For general editing use writing-review-and-editing; for verifying claims use fact-checking.",
+      "path": "skills/ai-content-authenticity/SKILL.md",
+      "references": [],
+      "related": [
+        "writing-review-and-editing",
+        "fact-checking",
+        "copywriting",
+        "technical-writing",
+        "business-communication",
+        "prompt-engineering",
+        "seo",
+        "ux-writing"
+      ]
+    },
+    {
+      "name": "architecture-review",
+      "category": "quality",
+      "description": "Evaluate a proposed or existing software design (design doc, RFC, ADR, architecture diagram, system proposal, or a running system's structure) and give a clear, reasoned verdict. Covers checking fit to requirements and quality attributes (scalability, reliability, security, latency, cost, operability, evolvability), finding risks and failure modes, probing assumptions, judging whether alternatives were genuinely considered, asking the questions that expose weak spots, and writing feedback with severity and a go / go-with-conditions / rethink outcome. Use when asked to \"review this design\", \"critique this architecture\", \"poke holes in this RFC\", \"is this approach sound\", \"sanity-check our system design\", or to prepare for a design review meeting. Not for producing a design from scratch (software-architecture, system-design) or reviewing a code diff (code-review).",
+      "path": "skills/architecture-review/SKILL.md",
+      "references": [
+        "skills/architecture-review/references/failure-modes-and-tactics.md"
+      ],
+      "related": [
+        "software-architecture",
+        "system-design",
+        "technical-decision-making",
+        "security-audit",
+        "cloud-architecture",
+        "api-design",
+        "database-design",
+        "observability",
+        "requirements-analysis",
+        "estimate-effort"
+      ]
+    },
+    {
+      "name": "code-review",
+      "category": "quality",
+      "description": "Review a code change (pull request, merge request, patch, diff, or a set of edited files) for correctness, safety, maintainability and fit with the codebase, and write feedback the author can act on. Covers understanding intent first, prioritising logic and edge cases over style, concurrency, security, tests, API and schema changes, performance, severity levels, reviewing AI-generated code, and avoiding nitpick noise. Use when asked to \"review this PR\", \"look over my diff\", \"check this change before I merge\", \"is this code OK\", or to self-review your own change. Not for auditing a whole existing system (security-audit, architecture-review) or for preparing and landing your own PR (pull-request-workflow).",
+      "path": "skills/code-review/SKILL.md",
+      "references": [],
+      "related": [
+        "pull-request-workflow",
+        "secure-coding",
+        "testing-strategy",
+        "performance-optimization",
+        "concurrency-and-async",
+        "api-design",
+        "refactoring",
+        "git-workflow",
+        "error-handling",
+        "database-migrations"
+      ]
+    },
+    {
+      "name": "end-to-end-testing",
+      "category": "quality",
+      "description": "Write, stabilize, and run reliable end-to-end and UI automation tests for web, mobile, and desktop apps with tools such as Playwright, Cypress, Selenium/WebDriver, WebdriverIO, Appium, Detox, or XCUITest/Espresso. Covers choosing what deserves an E2E test, resilient selectors, test isolation and data setup, waiting correctly instead of sleeping, diagnosing and fixing flaky tests, page objects and fixtures, running in CI with parallelism and artifacts, and visual regression testing. Use when asked to \"write an E2E test\", \"add Playwright/Cypress tests\", \"our UI tests are flaky\", \"test this user flow in the browser\", set up visual snapshots, or run browser tests in CI. For overall test-suite strategy use testing-strategy; for one-off browser scripting use browser-automation.",
+      "path": "skills/end-to-end-testing/SKILL.md",
+      "references": [],
+      "related": [
+        "testing-strategy",
+        "qa-test-planning",
+        "ci-cd-pipelines",
+        "browser-automation",
+        "frontend-development",
+        "debugging",
+        "accessibility-audit",
+        "test-driven-development"
+      ]
+    },
+    {
+      "name": "fact-checking",
+      "category": "quality",
+      "description": "Verify the factual claims in a document, article, report, speech, social post, or AI-generated answer: extract checkable claims, trace each to primary sources, verify numbers, statistics, quotes, dates, names, and attributions, detect claims that are technically true but misleading through missing context, rate confidence, and document sources so others can audit the result. Includes catching hallucinated or misattributed citations, fabricated quotes, and invented references in LLM output. Use when asked to \"fact-check\", \"verify this\", \"is this true\", \"check these sources/citations\", \"are these references real\", \"check the numbers\", or before publishing anything that makes factual claims. For broad topic research use web-research; for editing prose use writing-review-and-editing.",
+      "path": "skills/fact-checking/SKILL.md",
+      "references": [],
+      "related": [
+        "web-research",
+        "literature-review",
+        "writing-review-and-editing",
+        "ai-content-authenticity",
+        "statistical-analysis",
+        "data-analysis",
+        "llm-evaluation",
+        "technical-writing"
+      ]
+    },
+    {
+      "name": "postmortem",
+      "category": "quality",
+      "description": "Run and write a blameless post-incident review (postmortem, incident review, retrospective, after-action review, learning review) once an incident is resolved: gathering evidence, reconstructing an accurate timeline, analysing contributing factors across technology, process and organisation, recording what went well and where the team got lucky, producing action items that are specific, owned, prioritised and tracked, facilitating the review meeting, and sharing learnings. Use when asked to \"write the postmortem\", \"do an incident review\", \"what went wrong and how do we prevent it\", \"run a retro on the outage\", or to review a near miss, failed release or data incident. Not for handling an incident still in progress (incident-response) or for deep causal analysis techniques on their own (root-cause-analysis).",
+      "path": "skills/postmortem/SKILL.md",
+      "references": [],
+      "related": [
+        "incident-response",
+        "root-cause-analysis",
+        "observability",
+        "release-readiness",
+        "project-management",
+        "technical-writing",
+        "business-communication",
+        "debugging"
+      ]
+    },
+    {
+      "name": "pull-request-workflow",
+      "category": "quality",
+      "description": "Prepare, open, shepherd and land a code change through review: scoping a pull/merge request to one reviewable purpose, writing a description that explains why, self-reviewing before asking others, stacking dependent changes, responding to review feedback, keeping CI green and trustworthy, choosing a merge strategy (merge, squash, rebase), and cleaning up after. Use when the user says \"open a PR\", \"write the PR description\", \"split this into smaller PRs\", \"address the review comments\", \"CI is failing on my PR\", \"how should I merge this\", or asks how to get a change landed. Includes the rule never to force-push or rewrite a shared branch without consent. Not for reviewing someone else's change (code-review) or general branching and history mechanics (git-workflow).",
+      "path": "skills/pull-request-workflow/SKILL.md",
+      "references": [],
+      "related": [
+        "code-review",
+        "git-workflow",
+        "ci-cd-pipelines",
+        "release-management",
+        "technical-writing",
+        "verify-before-done",
+        "testing-strategy",
+        "plan-and-decompose"
+      ]
+    },
+    {
+      "name": "qa-test-planning",
+      "category": "quality",
+      "description": "Plan quality assurance for a feature, release, or product: decide what to test and how deeply based on risk, derive test cases with equivalence partitioning, boundary values, decision tables, and state-transition analysis, write exploratory testing charters, choose device/browser/OS coverage matrices, set entry and exit criteria, and write bug reports that reproduce. Use when asked for a \"test plan\", \"QA plan\", \"test cases\", \"what should we test\", \"regression checklist\", \"test matrix\", \"exploratory testing\", \"how do I report this bug\", or when a feature is about to go to QA. For the overall automated test architecture of a codebase use testing-strategy; for writing browser automation use end-to-end-testing.",
+      "path": "skills/qa-test-planning/SKILL.md",
+      "references": [],
+      "related": [
+        "testing-strategy",
+        "end-to-end-testing",
+        "requirements-analysis",
+        "user-stories",
+        "release-readiness",
+        "accessibility-audit",
+        "web-performance-audit",
+        "debugging"
+      ]
+    },
+    {
+      "name": "release-readiness",
+      "category": "quality",
+      "description": "Run a go/no-go assessment for shipping a release, launch, major feature, migration or deployment: identify what this release actually risks, check test and quality status, known issues and their severity, migration and rollback plans, feature flags and staged rollout, monitoring and alerting, documentation, support and stakeholder readiness, and record explicit risk acceptance. Builds checklists derived from the release's real risk rather than a generic list, and produces a clear go, go-with-conditions, or no-go recommendation. Use when asked \"are we ready to ship\", \"go/no-go for the release\", \"launch checklist\", \"release review\", \"can we deploy this on Friday\", or \"what's blocking the release\". Not for designing the release process or versioning itself (release-management) or for test planning from scratch (qa-test-planning).",
+      "path": "skills/release-readiness/SKILL.md",
+      "references": [],
+      "related": [
+        "release-management",
+        "qa-test-planning",
+        "testing-strategy",
+        "database-migrations",
+        "observability",
+        "incident-response",
+        "ci-cd-pipelines",
+        "end-to-end-testing",
+        "postmortem",
+        "business-communication"
+      ]
+    },
+    {
+      "name": "security-audit",
+      "category": "quality",
+      "description": "Assess an existing system, application, codebase or deployment for security weaknesses within an authorised scope, and report them responsibly. Covers scoping and rules of engagement, threat modelling (STRIDE and similar as lenses), attack surface and trust boundary mapping, dependency and secret scanning, authentication and authorisation review, data flow and storage review, configuration and infrastructure checks, confirming findings without false positives, severity rating with CVSS-like reasoning, and writing findings with remediation. Use when asked to \"audit the security of\", \"find vulnerabilities in\", \"threat model\", \"pentest-style review\", \"check this repo for security issues\", or to prepare for a security assessment or compliance review. Not for writing secure new code (secure-coding), reviewing a single change (code-review), or responding to an active breach (incident-response).",
+      "path": "skills/security-audit/SKILL.md",
+      "references": [
+        "skills/security-audit/references/review-checklists.md"
+      ],
+      "related": [
+        "secure-coding",
+        "authentication-and-authorization",
+        "dependency-management",
+        "code-review",
+        "architecture-review",
+        "infrastructure-as-code",
+        "cloud-architecture",
+        "incident-response",
+        "api-design",
+        "observability"
+      ]
+    },
+    {
+      "name": "web-performance-audit",
+      "category": "quality",
+      "description": "Measure, diagnose, and prioritize improvements to how fast web pages load and respond for real users. Covers Core Web Vitals (check the current metric set and thresholds), field data versus lab data, reading network waterfalls and performance traces, render-blocking resources, images and fonts, JavaScript cost and long tasks, layout shift, server response time, caching and CDNs, third-party scripts, performance budgets, and writing a prioritized, evidence-based report. Use when asked \"why is my site slow\", \"audit page speed\", \"improve Lighthouse score\", \"fix LCP/INP/CLS\", \"Core Web Vitals failing in Search Console\", or to set performance budgets. For optimizing backend or algorithmic code paths use performance-optimization.",
+      "path": "skills/web-performance-audit/SKILL.md",
+      "references": [],
+      "related": [
+        "performance-optimization",
+        "frontend-development",
+        "observability",
+        "seo",
+        "website-and-landing-pages",
+        "ci-cd-pipelines",
+        "accessibility-audit",
+        "data-analysis"
+      ]
+    },
+    {
+      "name": "writing-review-and-editing",
+      "category": "quality",
+      "description": "Review and edit any piece of writing — reports, articles, essays, docs, proposals, emails, web copy, fiction, academic drafts — to make it clearer, tighter, better organized, and right for its audience while keeping the author's voice. Covers diagnosing what a draft needs, structural editing before line editing, clarity and concision, audience fit, consistency, choosing between giving feedback and rewriting, tracked-change discipline, and final proofreading passes. Use when asked to \"edit\", \"proofread\", \"review my draft\", \"tighten this\", \"make this clearer\", \"give feedback on my writing\", \"polish\", or \"copyedit\". For checking whether claims are true use fact-checking; for removing generic AI-sounding prose use ai-content-authenticity; for writing technical docs from scratch use technical-writing.",
+      "path": "skills/writing-review-and-editing/SKILL.md",
+      "references": [],
+      "related": [
+        "fact-checking",
+        "ai-content-authenticity",
+        "technical-writing",
+        "business-communication",
+        "copywriting",
+        "ux-writing",
+        "presentations",
+        "literature-review"
+      ]
+    },
+    {
+      "name": "accessible-design",
+      "category": "design",
+      "description": "Design products that people with disabilities can use from the first sketch, not after an audit: color and contrast, text size and spacing, visible focus, target sizes, keyboard and screen-reader-friendly structure and semantics, headings and landmarks, accessible names, forms and error messaging, alt text and image descriptions, captions and transcripts, motion and flashing, cognitive accessibility and plain language, and inclusive representation and language. Grounded in WCAG 2.2 and platform guidance. Use when designing or building any UI, document, or media and you want it accessible, inclusive, ADA/EAA/Section 508 ready, screen-reader or keyboard friendly, or \"usable by everyone\". To evaluate an existing product for conformance use accessibility-audit instead.",
+      "path": "skills/accessible-design/SKILL.md",
+      "references": [],
+      "related": [
+        "accessibility-audit",
+        "ui-design-fundamentals",
+        "visual-design",
+        "interaction-design",
+        "layout-and-responsive-design",
+        "motion-design",
+        "ux-writing",
+        "design-systems",
+        "frontend-development"
+      ]
+    },
+    {
+      "name": "design-critique",
+      "category": "design",
+      "description": "Give, structure, and receive critique of any design artifact — screens, flows, prototypes, visual designs, design systems, slides, diagrams, physical or service designs — by first understanding goals and constraints, separating personal taste from effectiveness, making feedback specific and actionable, prioritizing issues, running critique sessions, critiquing your own work, and responding well to critique. Use when asked for feedback on a design, to review a mockup or prototype, to run a design crit, to compare design options, or to improve a design before sharing it. For evidence from real users use usability-evaluation; for code use code-review; for WCAG conformance use accessibility-audit.",
+      "path": "skills/design-critique/SKILL.md",
+      "references": [
+        "skills/design-critique/references/critique-lenses.md"
+      ],
+      "related": [
+        "usability-evaluation",
+        "ui-design-fundamentals",
+        "visual-design",
+        "interaction-design",
+        "accessible-design",
+        "ux-writing",
+        "design-systems",
+        "wireframing-and-prototyping",
+        "code-review",
+        "writing-review-and-editing",
+        "data-visualization",
+        "presentations"
+      ]
+    },
+    {
+      "name": "design-systems",
+      "category": "design",
+      "description": "Create, extend, audit and evolve design systems: design tokens (primitive, semantic and component tiers), naming, theming and multi-brand support, component APIs, variants and composition, documentation, contribution and governance models, versioning and deprecation, adoption and migration, and keeping design files and code in sync. Starts by discovering and working within any existing system. Use when asked to build a component library, UI kit, style guide or token set, add dark mode or a second brand theme, add or change a shared component, consolidate inconsistent UI, set up design-to-code token pipelines, or decide whether something belongs in the system. For choosing the colors and type themselves use visual-design; for a single screen use ui-design-fundamentals.",
+      "path": "skills/design-systems/SKILL.md",
+      "references": [],
+      "related": [
+        "visual-design",
+        "ui-design-fundamentals",
+        "frontend-development",
+        "design-to-code-handoff",
+        "accessible-design",
+        "code-documentation",
+        "dependency-management",
+        "release-management",
+        "technical-decision-making"
+      ]
+    },
+    {
+      "name": "design-to-code-handoff",
+      "category": "design",
+      "description": "Make designs buildable and keep implementation faithful to them: writing specs and annotations, mapping design decisions to design tokens and existing components, specifying every state and edge case, responsive and adaptive behavior, interaction and motion details, accessibility requirements, preparing and exporting assets, collaborating from both the design and engineering side, and running design QA against the built product. Use when preparing designs for developers, implementing a design from a mockup or design file, writing a design spec, reviewing a build against designs, or reducing rework between design and engineering. For building the design system itself use design-systems; for frontend implementation technique use frontend-development.",
+      "path": "skills/design-to-code-handoff/SKILL.md",
+      "references": [
+        "skills/design-to-code-handoff/references/design-qa.md",
+        "skills/design-to-code-handoff/references/states-and-edge-cases.md"
+      ],
+      "related": [
+        "design-systems",
+        "frontend-development",
+        "ui-design-fundamentals",
+        "layout-and-responsive-design",
+        "interaction-design",
+        "motion-design",
+        "accessible-design",
+        "ux-writing",
+        "wireframing-and-prototyping",
+        "code-review",
+        "qa-test-planning",
+        "design-critique",
+        "estimate-effort",
+        "mobile-app-development"
+      ]
+    },
+    {
+      "name": "information-architecture",
+      "category": "design",
+      "description": "Organize and label content and features so people can find, understand, and use them: content inventories and audits, mental models, taxonomies and metadata, labeling, global/local/contextual navigation, search versus browse, card sorting and tree testing, findability metrics, and scaling an IA as a product or site grows. Use when designing or restructuring a site map, app navigation, menu, settings area, help center, documentation structure, product catalog, or content taxonomy, or when users say they \"can't find\" things. For visual page layout use layout-and-responsive-design; for the wording of individual labels and messages use ux-writing.",
+      "path": "skills/information-architecture/SKILL.md",
+      "references": [
+        "skills/information-architecture/references/card-sorting-and-tree-testing.md"
+      ],
+      "related": [
+        "ux-research",
+        "ux-writing",
+        "usability-evaluation",
+        "interaction-design",
+        "wireframing-and-prototyping",
+        "documentation-site",
+        "website-and-landing-pages",
+        "seo",
+        "layout-and-responsive-design",
+        "design-systems",
+        "api-design",
+        "accessible-design"
+      ]
+    },
+    {
+      "name": "interaction-design",
+      "category": "design",
+      "description": "Design how an interface behaves over time: task flows, feedback and system status, state transitions, forms and validation, navigation and wayfinding, progressive disclosure, error prevention and recovery, confirmation vs. undo, optimistic UI and latency perception, keyboard and gesture input, notifications and microinteractions. Use when designing or fixing a flow (sign-up, checkout, onboarding, settings, multi-step wizard), deciding how a form validates, what happens when an action is slow or fails, whether to confirm or offer undo, how users move between screens, or when a UI \"feels clunky\", \"confusing\" or \"unresponsive\". For static layout and component choice use ui-design-fundamentals; for animation craft use motion-design.",
+      "path": "skills/interaction-design/SKILL.md",
+      "references": [],
+      "related": [
+        "ui-design-fundamentals",
+        "motion-design",
+        "ux-writing",
+        "information-architecture",
+        "wireframing-and-prototyping",
+        "usability-evaluation",
+        "accessible-design",
+        "error-handling",
+        "frontend-development"
+      ]
+    },
+    {
+      "name": "layout-and-responsive-design",
+      "category": "design",
+      "description": "Plan and build layouts that adapt to any viewport, container, input method and zoom level: grid systems, CSS Flexbox vs. Grid thinking (and their equivalents in native toolkits), intrinsic and fluid layouts, content-driven breakpoints, fluid type and spacing with clamp(), reflow at 320 px and 400% zoom, container queries, touch target sizing, safe areas, large and ultra-wide screens, print styles, and RTL/localisation. Use when making a page or app \"responsive\", \"mobile-friendly\" or \"work on tablets\", fixing overflow, horizontal scroll or layout breaking at certain widths, choosing breakpoints, designing a grid, or adapting a desktop design to mobile (or the reverse). For screen content and hierarchy use ui-design-fundamentals.",
+      "path": "skills/layout-and-responsive-design/SKILL.md",
+      "references": [],
+      "related": [
+        "ui-design-fundamentals",
+        "visual-design",
+        "frontend-development",
+        "accessible-design",
+        "design-systems",
+        "mobile-app-development",
+        "website-and-landing-pages",
+        "web-performance-audit",
+        "design-to-code-handoff"
+      ]
+    },
+    {
+      "name": "motion-design",
+      "category": "design",
+      "description": "Design and implement purposeful interface animation: deciding when motion helps (feedback, orientation, continuity, attention, character) and when it harms, easing curves and springs, duration by distance and size, choreography and staggering, transitions between states and screens (including shared-element and view transitions), loading and skeleton motion, performance (compositor-friendly properties, frame budgets, layout thrash), and reduced-motion and vestibular safety. Use when adding animations or transitions, picking easing or timing, making a UI feel \"smoother\", \"snappier\" or \"more alive\", fixing janky or laggy animation, defining motion tokens, or handling prefers-reduced-motion. For what the interaction should do (not how it moves) use interaction-design.",
+      "path": "skills/motion-design/SKILL.md",
+      "references": [],
+      "related": [
+        "interaction-design",
+        "ui-design-fundamentals",
+        "accessible-design",
+        "design-systems",
+        "performance-optimization",
+        "web-performance-audit",
+        "frontend-development",
+        "game-development"
+      ]
+    },
+    {
+      "name": "ui-design-fundamentals",
+      "category": "design",
+      "description": "Design user interfaces that are clear, usable and fit their product: visual hierarchy, alignment, proximity and grouping, contrast, consistency, affordances and signifiers, information density, the full set of UI states (empty, loading, partial, error, success, disabled), and choosing between common component patterns (modal vs. inline, tabs vs. accordion, table vs. cards, menus, toasts). Derives design direction from the product, audience, platform and existing brand rather than a default aesthetic. Use when asked to design, mock up, lay out, improve, redesign or \"make look better\" a screen, page, form, dashboard, settings panel or app UI, or when building a UI in code without a designer. For typography/color/visual language use visual-design; for tokens and component libraries use design-systems.",
+      "path": "skills/ui-design-fundamentals/SKILL.md",
+      "references": [],
+      "related": [
+        "visual-design",
+        "layout-and-responsive-design",
+        "interaction-design",
+        "accessible-design",
+        "design-systems",
+        "information-architecture",
+        "ux-writing",
+        "wireframing-and-prototyping",
+        "design-critique",
+        "frontend-development"
+      ]
+    },
+    {
+      "name": "usability-evaluation",
+      "category": "design",
+      "description": "Evaluate how usable an interface, flow, or prototype is: expert reviews (heuristic evaluation using Nielsen's heuristics or other lenses, cognitive walkthroughs), moderated and unmoderated usability tests, task and scenario design, think-aloud, metrics (task success, time on task, errors, post-task and SUS-style questionnaires), severity rating, benchmarking, and reporting findings that get fixed. Use when asked to test or review a product's usability, plan a usability study, write test tasks, find UX problems in a screen or flow, rate issue severity, or compare usability before and after a change. For open-ended discovery research use ux-research; for WCAG conformance use accessibility-audit; for opinion-based design feedback use design-critique.",
+      "path": "skills/usability-evaluation/SKILL.md",
+      "references": [
+        "skills/usability-evaluation/references/metrics-and-scales.md",
+        "skills/usability-evaluation/references/writing-up-issues.md"
+      ],
+      "related": [
+        "ux-research",
+        "design-critique",
+        "accessibility-audit",
+        "accessible-design",
+        "wireframing-and-prototyping",
+        "interaction-design",
+        "information-architecture",
+        "ux-writing",
+        "experiment-design",
+        "statistical-analysis",
+        "qa-test-planning",
+        "llm-evaluation"
+      ]
+    },
+    {
+      "name": "ux-research",
+      "category": "design",
+      "description": "Plan, run, and synthesize user research: framing research questions, choosing methods (interviews, contextual inquiry, surveys, diary studies, usability tests, analytics, card sorts) by what you need to learn, recruiting and screening participants, interview technique without leading questions, affinity mapping and thematic synthesis, turning observations into insights, and research ethics and consent. Use when someone wants to understand users, validate a problem, write a discussion guide or survey, plan a study, recruit participants, or make sense of research notes. For evaluating a specific interface's usability use usability-evaluation; for controlled A/B tests use experiment-design.",
+      "path": "skills/ux-research/SKILL.md",
+      "references": [
+        "skills/ux-research/references/interview-technique.md",
+        "skills/ux-research/references/survey-design.md"
+      ],
+      "related": [
+        "usability-evaluation",
+        "information-architecture",
+        "experiment-design",
+        "product-requirements",
+        "user-stories",
+        "data-analysis",
+        "statistical-analysis",
+        "competitive-analysis",
+        "requirements-analysis",
+        "accessible-design"
+      ]
+    },
+    {
+      "name": "ux-writing",
+      "category": "design",
+      "description": "Write and edit interface copy and microcopy: button and link labels, form labels and hints, error and validation messages, empty states, confirmations, notifications, onboarding, tooltips, and settings descriptions; build consistent terminology; adapt tone to the product's existing voice; and prepare strings for localization. Use when writing or reviewing any text that appears inside a product UI, naming a feature or action, fixing confusing or unhelpful messages, or creating a content style guide for an interface. For marketing pages and persuasive copy use copywriting; for long-form docs use technical-writing; for navigation structure and taxonomy use information-architecture.",
+      "path": "skills/ux-writing/SKILL.md",
+      "references": [
+        "skills/ux-writing/references/error-messages.md",
+        "skills/ux-writing/references/localization-readiness.md"
+      ],
+      "related": [
+        "copywriting",
+        "technical-writing",
+        "information-architecture",
+        "interaction-design",
+        "accessible-design",
+        "design-systems",
+        "error-handling",
+        "usability-evaluation",
+        "writing-review-and-editing"
+      ]
+    },
+    {
+      "name": "visual-design",
+      "category": "design",
+      "description": "Build a coherent visual language for an interface, document or brand surface from its given constraints: typography (type scales, pairing, measure, leading, weights, numerals), color (palette construction, roles, contrast, dark mode, state and meaning), spacing scales, elevation and shape, imagery, illustration and iconography. Presents justified options instead of a house look, and extends an existing brand rather than replacing it. Use when choosing fonts or colors, defining a palette or type scale, theming, adding dark mode, making something \"look more polished\", \"more professional\" or \"on-brand\", or when visuals feel inconsistent. For screen structure use ui-design-fundamentals; for turning choices into tokens and components use design-systems.",
+      "path": "skills/visual-design/SKILL.md",
+      "references": [],
+      "related": [
+        "ui-design-fundamentals",
+        "design-systems",
+        "layout-and-responsive-design",
+        "accessible-design",
+        "motion-design",
+        "data-visualization",
+        "presentations",
+        "website-and-landing-pages",
+        "design-critique"
+      ]
+    },
+    {
+      "name": "wireframing-and-prototyping",
+      "category": "design",
+      "description": "Turn ideas into sketches, wireframes, mockups, and interactive prototypes at the right fidelity to answer a specific question: choosing low- vs. high-fidelity, paper sketches vs. design-tool prototypes vs. coded prototypes, what to prototype for which question, using realistic content, annotating for stakeholders and developers, testing prototypes with users, and avoiding premature polish. Use when exploring layout or flow options, sketching screens, building a clickable prototype for a test or demo, deciding how much fidelity is needed, or annotating wireframes. For final visual styling use visual-design; for a working MVP product use mvp-prototyping; for testing method detail use usability-evaluation.",
+      "path": "skills/wireframing-and-prototyping/SKILL.md",
+      "references": [
+        "skills/wireframing-and-prototyping/references/prototype-testing.md"
+      ],
+      "related": [
+        "ui-design-fundamentals",
+        "interaction-design",
+        "information-architecture",
+        "usability-evaluation",
+        "ux-research",
+        "visual-design",
+        "mvp-prototyping",
+        "design-to-code-handoff",
+        "frontend-development",
+        "design-critique",
+        "ux-writing",
+        "accessible-design",
+        "layout-and-responsive-design"
+      ]
+    },
+    {
+      "name": "api-integrations-and-webhooks",
+      "category": "automation",
+      "description": "Integrate with third-party APIs and receive webhooks reliably and securely: reading API docs critically, choosing and implementing auth (API keys, OAuth 2.0 flows, signed requests), rate limits, timeouts, retries with exponential backoff and jitter, pagination, idempotency keys, webhook signature verification, deduplication, replay and reconciliation, sandbox vs production, versioning, and secret storage. Use when asked to connect to, sync with, or call an external service's API, build a client or SDK wrapper, receive or debug webhooks, handle OAuth, or fix an integration that drops, duplicates, or gets rate-limited.",
+      "path": "skills/api-integrations-and-webhooks/SKILL.md",
+      "references": [],
+      "related": [
+        "api-design",
+        "authentication-and-authorization",
+        "error-handling",
+        "secure-coding",
+        "workflow-automation",
+        "etl-pipelines",
+        "observability",
+        "backend-development"
+      ]
+    },
+    {
+      "name": "browser-automation",
+      "category": "automation",
+      "description": "Drive real or headless browsers programmatically for testing, task automation, screenshots, PDF generation and data capture, using tools such as Playwright, Puppeteer, Selenium/WebDriver or Cypress as examples: robust selectors, auto-waiting instead of sleeps, sessions and authentication state, downloads and uploads, screenshots and traces, headless vs headed, iframes and popups, reducing flakiness, and safety when operating real accounts. Use when asked to automate clicks and form-filling in a browser, write or fix a browser script, capture pages, or debug flaky browser automation.",
+      "path": "skills/browser-automation/SKILL.md",
+      "references": [],
+      "related": [
+        "end-to-end-testing",
+        "web-scraping",
+        "testing-strategy",
+        "debugging",
+        "scripting-and-shell",
+        "accessibility-audit",
+        "ci-cd-pipelines"
+      ]
+    },
+    {
+      "name": "etl-pipelines",
+      "category": "automation",
+      "description": "Design, build and operate data pipelines that move and transform data between systems: ETL vs ELT, batch vs streaming, full vs incremental loads, change data capture, idempotent and re-runnable loads, schema evolution, orchestration (e.g. Airflow, Dagster, Prefect, dbt, cloud schedulers), data quality checks, backfills, late-arriving data, lineage and monitoring. Use when asked to build or fix a data pipeline, sync data into a warehouse or lake, schedule transformations, backfill historical data, handle schema changes from a source, or investigate missing, duplicated or stale data.",
+      "path": "skills/etl-pipelines/SKILL.md",
+      "references": [],
+      "related": [
+        "data-cleaning-and-validation",
+        "database-design",
+        "sql-and-queries",
+        "scheduled-jobs",
+        "api-integrations-and-webhooks",
+        "observability",
+        "database-migrations",
+        "data-analysis"
+      ]
+    },
+    {
+      "name": "scheduled-jobs",
+      "category": "automation",
+      "description": "Design, implement and operate jobs that run on a schedule or from a job queue: cron and crontab syntax, systemd timers, Kubernetes CronJobs, cloud schedulers, and background job queues as examples; timezones and daylight saving, overlapping runs and locking, retries and idempotency, catch-up and missed-run semantics, timeouts, alerting on silent failure (dead man's switch), logging and observability. Use when asked to run something every N minutes, nightly, or at a set time, write or debug a crontab or timer, build a recurring or background job, or investigate a job that did not run, ran twice, or runs at the wrong time.",
+      "path": "skills/scheduled-jobs/SKILL.md",
+      "references": [],
+      "related": [
+        "scripting-and-shell",
+        "workflow-automation",
+        "etl-pipelines",
+        "observability",
+        "concurrency-and-async",
+        "kubernetes",
+        "incident-response"
+      ]
+    },
+    {
+      "name": "scripting-and-shell",
+      "category": "automation",
+      "description": "Write robust, safe, maintainable scripts in shell (bash, zsh, POSIX sh), PowerShell, or a scripting language such as Python: strict modes, quoting, argument parsing, idempotency, dry-run flags, logging, portability between GNU, BSD/macOS and Windows, safe destructive operations, and knowing when a script has outgrown the shell. Use when asked to write, fix, review or harden a shell script, one-liner, Makefile recipe, install/setup script, glue script, or \"a quick script to...\" automate something on a machine.",
+      "path": "skills/scripting-and-shell/SKILL.md",
+      "references": [],
+      "related": [
+        "cli-development",
+        "text-processing-and-regex",
+        "scheduled-jobs",
+        "workflow-automation",
+        "error-handling",
+        "secure-coding",
+        "ci-cd-pipelines"
+      ]
+    },
+    {
+      "name": "text-processing-and-regex",
+      "category": "automation",
+      "description": "Construct correct, readable, efficient regular expressions and perform text transformations safely: anchors, greediness, character classes, groups and lookarounds, regex flavor differences, catastrophic backtracking (ReDoS), Unicode and encodings; line-oriented tools such as grep, sed, awk, jq, yq and their GNU/BSD differences; using real parsers for JSON, CSV, HTML, XML, YAML and code instead of regex; and making bulk search-and-replace edits across many files without breaking them. Use when writing or debugging a regex, extracting fields from logs or text, transforming files with sed/awk/jq, doing a codebase-wide find-and-replace, or validating input formats.",
+      "path": "skills/text-processing-and-regex/SKILL.md",
+      "references": [],
+      "related": [
+        "scripting-and-shell",
+        "data-cleaning-and-validation",
+        "refactoring",
+        "web-scraping",
+        "secure-coding",
+        "etl-pipelines"
+      ]
+    },
+    {
+      "name": "web-scraping",
+      "category": "automation",
+      "description": "Extract structured data from websites responsibly and reliably: checking terms of service, robots.txt and legal constraints, preferring official APIs and data exports, choosing plain HTTP versus a headless browser, parsing HTML/JSON, pagination and crawling, rate limiting and politeness, resilience to layout changes, deduplication, and storing provenance. Never bypasses CAPTCHAs, logins or paywalls. Use when asked to scrape, crawl, harvest, or \"pull data from\" a website, monitor pages for changes, build a scraper or spider, or fix a scraper that broke.",
+      "path": "skills/web-scraping/SKILL.md",
+      "references": [],
+      "related": [
+        "browser-automation",
+        "api-integrations-and-webhooks",
+        "text-processing-and-regex",
+        "etl-pipelines",
+        "data-cleaning-and-validation",
+        "scheduled-jobs",
+        "web-research"
+      ]
+    },
+    {
+      "name": "workflow-automation",
+      "category": "automation",
+      "description": "Design and build automations of business and development workflows, using no-code/low-code platforms (e.g. Zapier, Make, n8n, Power Automate) or code: mapping the manual process first, choosing triggers, handling duplicates and idempotency, error paths and retries, human approval steps, notifications, monitoring, ownership and documentation. Use when someone wants to \"automate this process\", connect apps so that X happens when Y happens, replace a manual hand-off or copy-paste routine, build an approval flow, or fix an existing automation that misfires, duplicates, or silently stops.",
+      "path": "skills/workflow-automation/SKILL.md",
+      "references": [],
+      "related": [
+        "api-integrations-and-webhooks",
+        "scheduled-jobs",
+        "scripting-and-shell",
+        "error-handling",
+        "observability",
+        "requirements-analysis",
+        "etl-pipelines",
+        "ai-agents-and-tool-use"
+      ]
+    },
+    {
+      "name": "business-communication",
+      "category": "product-and-communication",
+      "description": "Write workplace messages that get read and acted on: emails, chat messages, status updates, announcements, requests, escalations, difficult or bad-news messages, apologies, and executive summaries. Put the bottom line first, adapt to the audience and channel, make the ask explicit, and match tone to the sender's own voice and the organization's norms rather than a house style. Draft for the sender's review and never send on anyone's behalf without explicit confirmation. Use when someone asks to \"write an email\", \"draft a message to my manager\", \"announce this change\", \"escalate this\", \"deliver bad news\", \"summarize this for leadership\", \"reply to this\", or \"make this clearer / shorter / more diplomatic\". Not for long-form docs (technical-writing), marketing copy (copywriting), or slide decks (presentations).",
+      "path": "skills/business-communication/SKILL.md",
+      "references": [],
+      "related": [
+        "writing-review-and-editing",
+        "technical-writing",
+        "presentations",
+        "copywriting",
+        "project-management",
+        "report-results",
+        "ux-writing",
+        "fact-checking"
+      ]
+    },
+    {
+      "name": "copywriting",
+      "category": "product-and-communication",
+      "description": "Write persuasive and marketing copy that moves a specific audience to act: landing and product pages, headlines, taglines, value propositions, calls to action, ads, email campaigns, product descriptions, app-store listings, social posts, sales one-pagers, and launch announcements. Covers audience and awareness level, benefits vs. features, specificity, proof, objections, headlines and CTAs, structure for scanning, deriving voice from the brand, testing variants, and ethics (no false or unsubstantiated claims, no dark patterns). Use when asked to \"write copy\", \"punch up this headline\", \"write ad/email/landing page text\", \"make this more compelling/convincing\", or produce A/B variants. Not for in-product interface text (ux-writing), explanatory documentation (technical-writing), search optimisation (seo), or internal emails and memos (business-communication).",
+      "path": "skills/copywriting/SKILL.md",
+      "references": [],
+      "related": [
+        "ux-writing",
+        "seo",
+        "website-and-landing-pages",
+        "experiment-design",
+        "business-communication",
+        "writing-review-and-editing",
+        "ux-research",
+        "fact-checking"
+      ]
+    },
+    {
+      "name": "curriculum-design",
+      "category": "product-and-communication",
+      "description": "Design courses, units, lessons, workshops, and training programmes that produce real learning: defining measurable learning objectives (with Bloom's taxonomy as one lens), backward design from outcomes, assessments aligned to objectives, active and hands-on activities over passive content and recall quizzes, scaffolding and sequencing, pacing and cognitive load, feedback, accessibility and inclusion, adapting to audience level from K-12 through university to professional and corporate training, and iterating from learner evidence. Use when asked to design or revise a course, syllabus, lesson plan, unit, module, bootcamp, onboarding or upskilling programme, workshop agenda, learning activities, assignments, rubrics, or assessments. Not for producing individual slide decks (presentations), writing reference documentation (technical-writing), or building the delivery platform.",
+      "path": "skills/curriculum-design/SKILL.md",
+      "references": [],
+      "related": [
+        "presentations",
+        "technical-writing",
+        "ux-research",
+        "accessible-design",
+        "experiment-design",
+        "writing-review-and-editing",
+        "information-architecture",
+        "project-management"
+      ]
+    },
+    {
+      "name": "document-generation",
+      "category": "product-and-communication",
+      "description": "Produce document files — DOCX, PDF, XLSX, PPTX, Markdown, HTML, CSV — either programmatically (libraries, templates, converters, report pipelines) or by hand, and verify they open and render correctly. Covers choosing the format by how the file will be used, template-based vs. built-from-code generation, using the document's own style system (styles, masters, themes, named formats) instead of ad-hoc formatting, tables, images, page layout, fonts, accessibility of documents, conversion between formats, and checking output by actually opening or rendering it. Use when asked to \"generate a Word doc/PDF/spreadsheet/slide file\", build a report or invoice generator, mail-merge, export data to Excel, convert Markdown to PDF/DOCX, fill a template, or fix a file that renders wrong. Not for deciding what a document should say (technical-writing, business-communication), deck storyline (presentations), or spreadsheet model logic (spreadsheet-modeling).",
+      "path": "skills/document-generation/SKILL.md",
+      "references": [
+        "skills/document-generation/references/office-formats.md",
+        "skills/document-generation/references/pdf-and-html.md"
+      ],
+      "related": [
+        "technical-writing",
+        "presentations",
+        "spreadsheet-modeling",
+        "data-visualization",
+        "accessible-design",
+        "scripting-and-shell",
+        "workflow-automation",
+        "verify-before-done"
+      ]
+    },
+    {
+      "name": "presentations",
+      "category": "product-and-communication",
+      "description": "Build slide decks and talks that make one clear argument to a specific audience: storyline before slides, one idea per slide, evidence and visuals instead of text walls, data slides, speaker notes, fitting audience and time slot, and a visual style derived from the organisation's brand or the content itself rather than a default theme. Tool-neutral (PowerPoint, Keynote, Google Slides, HTML frameworks, LaTeX Beamer, or generated decks). Use when asked to make, outline, restructure, or improve a presentation, pitch deck, keynote, conference talk, lecture slides, board/QBR/status deck, demo-day deck, or speaker notes. Not for the mechanics of programmatically writing .pptx files (document-generation), standalone chart design (data-visualization), or written reports and memos (technical-writing, business-communication).",
+      "path": "skills/presentations/SKILL.md",
+      "references": [],
+      "related": [
+        "technical-writing",
+        "business-communication",
+        "data-visualization",
+        "visual-design",
+        "document-generation",
+        "copywriting",
+        "curriculum-design",
+        "writing-review-and-editing"
+      ]
+    },
+    {
+      "name": "product-requirements",
+      "category": "product-and-communication",
+      "description": "Write, review, and maintain product requirements documents (PRDs), feature specs, one-pagers, and briefs: frame the problem before the solution, name the users and their jobs, set goals, non-goals and success metrics, define scope, write requirements at the right altitude, record alternatives and open questions, and keep the spec alive as the work changes. Use when someone asks to \"write a PRD\", \"draft a spec\", \"spec out this feature\", \"turn this idea into requirements\", \"review my product doc\", or needs a shared definition of what to build and why before design or engineering starts. Not for backlog-level stories (user-stories), eliciting needs from stakeholders (requirements-analysis), or engineering design docs (system-design).",
+      "path": "skills/product-requirements/SKILL.md",
+      "references": [],
+      "related": [
+        "user-stories",
+        "requirements-analysis",
+        "clarify-requirements",
+        "roadmap-and-prioritization",
+        "ux-research",
+        "experiment-design",
+        "technical-writing",
+        "technical-decision-making"
+      ]
+    },
+    {
+      "name": "project-management",
+      "category": "product-and-communication",
+      "description": "Plan, run, and close projects of any kind with any method (agile, kanban, waterfall, or hybrid): scope and charter the work, set milestones, assign clear ownership (RACI-style), keep a risk and issue log, track status honestly, control scope creep through explicit change decisions, set meeting and reporting cadences, unblock people, manage dependencies, and close out with handover and lessons learned. Use when someone asks to \"plan this project\", \"set up a project plan\", \"we're behind, what do we do\", \"track risks\", \"write a status report\", \"who owns what\", or \"wrap up the project\". Not for deciding what to build (roadmap-and-prioritization), breaking work into stories (user-stories), or sizing it (estimate-effort).",
+      "path": "skills/project-management/SKILL.md",
+      "references": [],
+      "related": [
+        "plan-and-decompose",
+        "estimate-effort",
+        "roadmap-and-prioritization",
+        "user-stories",
+        "business-communication",
+        "release-management",
+        "postmortem",
+        "technical-decision-making",
+        "report-results"
+      ]
+    },
+    {
+      "name": "roadmap-and-prioritization",
+      "category": "product-and-communication",
+      "description": "Decide what to work on and in what order, and communicate it as a roadmap: use prioritization frameworks (RICE, ICE, MoSCoW, Kano, cost of delay / WSJF, opportunity scoring) as lenses with known failure modes rather than oracles, build outcome-based instead of output-based roadmaps, sequence by dependency, risk and learning, say no well, and communicate confidence and uncertainty honestly. Use when someone asks to \"prioritize the backlog\", \"build a roadmap\", \"score these features\", \"what should we do next quarter\", \"how do I say no to this request\", or must present plans to stakeholders. Not for writing the spec of a chosen item (product-requirements), running delivery (project-management), or sizing work (estimate-effort).",
+      "path": "skills/roadmap-and-prioritization/SKILL.md",
+      "references": [],
+      "related": [
+        "product-requirements",
+        "user-stories",
+        "project-management",
+        "estimate-effort",
+        "technical-decision-making",
+        "competitive-analysis",
+        "experiment-design",
+        "business-communication",
+        "presentations"
+      ]
+    },
+    {
+      "name": "seo",
+      "category": "product-and-communication",
+      "description": "Improve how content and sites are found through search engines and AI answer engines, without spam tactics. Covers search intent, keyword and topic research, on-page optimisation (titles, headings, meta descriptions, internal links, structured data), technical SEO (crawlability, indexing, sitemaps, robots rules, canonicals, redirects, JavaScript rendering, performance, mobile, international hreflang), content quality and usefulness, earning links, visibility in AI-generated answers, local search basics, and measuring results. Use when asked to \"improve SEO\", \"rank for\", \"why isn't this page indexed\", \"optimise titles/meta\", \"add schema markup\", \"plan content for search\", \"SEO audit\", \"migrate a site without losing traffic\", or \"show up in AI answers\". Not for persuasive page copy (copywriting), page-speed engineering in depth (web-performance-audit), or building the site (website-and-landing-pages, documentation-site).",
+      "path": "skills/seo/SKILL.md",
+      "references": [
+        "skills/seo/references/technical-seo.md"
+      ],
+      "related": [
+        "copywriting",
+        "technical-writing",
+        "website-and-landing-pages",
+        "web-performance-audit",
+        "information-architecture",
+        "frontend-development",
+        "data-analysis",
+        "competitive-analysis",
+        "documentation-site"
+      ]
+    },
+    {
+      "name": "technical-writing",
+      "category": "product-and-communication",
+      "description": "Explain technical subjects clearly to a defined audience: guides, tutorials, how-tos, reference pages, conceptual explanations, design docs, runbooks, READMEs, internal wikis, knowledge-base articles, and technical blog posts. Covers establishing purpose and reader prior knowledge, choosing a document type (tutorial, how-to, reference, explanation), structure, examples, precision, diagrams, scannability, and matching the destination's existing voice. Use when asked to write, rewrite, or restructure documentation or any prose whose job is to make a technical thing understood or usable — \"write docs for\", \"explain how X works\", \"document this API/process\", \"write a guide/tutorial/runbook\". Not for in-code comments and docstrings (code-documentation), building a docs website (documentation-site), editing someone else's draft (writing-review-and-editing), or UI microcopy (ux-writing).",
+      "path": "skills/technical-writing/SKILL.md",
+      "references": [],
+      "related": [
+        "code-documentation",
+        "documentation-site",
+        "writing-review-and-editing",
+        "ux-writing",
+        "information-architecture",
+        "business-communication",
+        "fact-checking",
+        "api-design"
+      ]
+    },
+    {
+      "name": "user-stories",
+      "category": "product-and-communication",
+      "description": "Write, split, and refine user stories and their acceptance criteria so each backlog item delivers a thin, testable slice of user value: apply INVEST, slice vertically rather than by layer, split epics with proven patterns, write acceptance criteria (Given/When/Then as one option among several), cover edge cases, agree a definition of done, and catch tasks disguised as stories. Use when someone asks to \"write user stories\", \"break this epic down\", \"add acceptance criteria\", \"refine the backlog\", \"this story is too big\", or is preparing items for sprint or iteration planning. Not for the overall feature spec (product-requirements), choosing what to build first (roadmap-and-prioritization), or test-case design (qa-test-planning).",
+      "path": "skills/user-stories/SKILL.md",
+      "references": [],
+      "related": [
+        "product-requirements",
+        "requirements-analysis",
+        "plan-and-decompose",
+        "estimate-effort",
+        "qa-test-planning",
+        "project-management",
+        "roadmap-and-prioritization",
+        "test-driven-development"
+      ]
+    }
+  ]
+}
