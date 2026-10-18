@@ -36,7 +36,7 @@ Short version: put the repo where your model can read it, and point the model at
 
 | Tool | How |
 |---|---|
-| **Claude Code** | `/plugin marketplace add <owner>/universal-llm-skills`, then `/plugin install universal-llm-skills`. Or copy or symlink `skills/*` into `~/.claude/skills/`. |
+| **Claude Code** | `/plugin marketplace add KMaruthi2002/universal-llm-skills`, then `/plugin install universal-llm-skills`. Or copy or symlink `skills/*` into `~/.claude/skills/`. |
 | **Claude.ai / Claude Desktop** | Upload individual skill folders as Skills (zip each `skills/<name>/` folder). |
 | **OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, other agents** | Clone into or alongside your project. They read `AGENTS.md` (pointer files are provided for `CLAUDE.md`, `GEMINI.md` and `.github/copilot-instructions.md`), and many discover `skills/*/SKILL.md` natively. |
 | **Any LLM with file or MCP access** | Expose the folder through a filesystem or GitHub MCP server and tell the model: *"Read AGENTS.md and use the skills library for this task."* |

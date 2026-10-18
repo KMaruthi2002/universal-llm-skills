@@ -4,7 +4,6 @@ The library is plain Markdown in the open Agent Skills layout, so there are many
 
 > **Read `AGENTS.md`, choose the relevant skills from `CATALOG.md`, and follow them for this task.**
 
-Replace `<owner>` below with the GitHub account or organization that hosts your copy of the repo.
 
 ---
 
@@ -13,7 +12,7 @@ Replace `<owner>` below with the GitHub account or organization that hosts your 
 **As a plugin (recommended; stays up to date):**
 
 ```
-/plugin marketplace add <owner>/universal-llm-skills
+/plugin marketplace add KMaruthi2002/universal-llm-skills
 /plugin install universal-llm-skills@universal-llm-skills
 ```
 
@@ -22,7 +21,7 @@ Claude Code discovers every `skills/*/SKILL.md` and loads each one automatically
 **As personal skills (available in every project):**
 
 ```bash
-git clone https://github.com/<owner>/universal-llm-skills ~/universal-llm-skills
+git clone https://github.com/KMaruthi2002/universal-llm-skills ~/universal-llm-skills
 mkdir -p ~/.claude/skills
 ln -s ~/universal-llm-skills/skills/* ~/.claude/skills/
 ```
