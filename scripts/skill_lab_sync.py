@@ -297,8 +297,8 @@ def propose(path: Path, dry_run: bool, no_pr: bool, extend: bool, repo: str, bas
     finally:
         run(["git", "worktree", "remove", "--force", str(worktree)], cwd=ROOT, check=False)
         shutil.rmtree(tmp, ignore_errors=True)
-        if dry_run:
-            run(["git", "branch", "-D", branch], cwd=ROOT, check=False, capture=True)
+        # The local branch has done its job: a dry run discards it, a real run has pushed it.
+        run(["git", "branch", "-D", branch], cwd=ROOT, check=False, capture=True)
 
 
 # --------------------------------------------------------------------------- cli
