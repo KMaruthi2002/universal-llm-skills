@@ -9,7 +9,7 @@ description: >-
   conflicting advice.
 metadata:
   category: meta
-  related: clarify-requirements, plan-and-decompose, manage-context, verify-before-done, write-new-skill
+  related: clarify-requirements, plan-and-decompose, manage-context, verify-before-done, write-new-skill, skill-lab-sync
 ---
 
 # Using Skills
@@ -159,3 +159,30 @@ Before starting the work, you should be able to answer:
 - What project conventions have I found that override generic guidance?
 
 If you cannot answer the last one for a task in an existing project, you have not looked yet.
+
+## Routing pitfalls
+
+The recurring ways routing goes wrong, and how to notice each early:
+
+- **Routing on topic words instead of the deliverable.** "Database" in the request pulls `database-design` even when the deliverable is a one-line query fix (`sql-and-queries`) or a safe schema change (`database-migrations`). Symptom: the skill's process talks about decisions you are not being asked to make.
+- **Loading the whole shortlist up front.** Reading five skills before starting burns context on sections you will never reach and blurs which guidance is current. Symptom: you are summarising skills instead of doing the task.
+- **Letting the skill override the project.** A skill's "prefer X" is a default for green fields. If the codebase already does Y consistently, the skill is telling you how to do Y well, not to switch. Symptom: your change introduces a second way of doing something the project already does one way.
+- **Stretching a near-miss.** `mobile-app-development` for a responsive website, `incident-response` for a slow page that is not down. The frame brings the wrong priorities (urgency, platform constraints) with it. Symptom: you are skipping half the skill's steps because they do not apply.
+- **Routing once and never again.** Tasks change shape: a "fix this test" that turns out to be a design flaw needs `software-architecture`, not more `debugging`. Symptom: the skill's checks keep failing for reasons the skill does not discuss.
+- **Treating "no skill fits" as permission to skip the meta habits.** Clarify, plan, verify, and report apply whether or not a domain skill loaded.
+
+## Checking your routing
+
+Before you are deep in the work, a quick sanity pass costs one minute and saves a wrong frame:
+
+- [ ] You can state the deliverable in one sentence, and the primary skill's description names that deliverable (or its kind).
+- [ ] Each supporting skill maps to a specific part of the task you can point at, not to a general feeling that it is relevant.
+- [ ] You have looked at the project's own conventions for the areas the skills cover, and know where they take precedence.
+- [ ] Nothing loaded that you cannot say when you will use.
+- [ ] If nothing fit, you borrowed a neighbour's process deliberately rather than guessing, and you noted the gap.
+
+Re-run the pass when the task changes shape or when a skill's checks start failing for reasons it does not cover: that is the signal to re-route, not to push harder.
+
+## Feeding gaps back
+
+A gap you hit while routing is information the library needs. When no skill fits a kind of task that is likely to recur for other people, note it with what you learned (the decisions, the traps, the checks) and, at the end of the session, run `skill-lab-sync`: it compares the gap against the catalog, points at an existing skill if one covers it after all, and otherwise walks you through proposing a new one. Do not open a pull request mid-task for a gap you have met once; one instance rarely holds enough judgment for a skill.

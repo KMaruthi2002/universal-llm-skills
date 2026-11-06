@@ -155,7 +155,8 @@
         "plan-and-decompose",
         "manage-context",
         "verify-before-done",
-        "write-new-skill"
+        "write-new-skill",
+        "skill-lab-sync"
       ]
     },
     {
