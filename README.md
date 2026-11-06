@@ -74,6 +74,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). In short: read the [standard](docs/SKILL
 python3 scripts/validate.py && python3 scripts/build_catalog.py
 ```
 
+### Growing it from daily work
+
+Give your assistant the single file [`skills/skill-lab-sync/SKILL.md`](skills/skill-lab-sync/SKILL.md) (upload it as a skill, add it to a project, or paste it into instructions). At the end of a session it compares the kinds of work it did against `catalog.json`, points you at the skill that already covers each one, and opens a pull request only for what is genuinely new:
+
+```bash
+python3 scripts/skill_lab_sync.py compare "name: when to use" ...   # existing / extend / new
+python3 scripts/skill_lab_sync.py propose path/to/SKILL.md          # validate, build catalog, open the PR
+```
+
+Assistants without a shell hand you the finished file and a one-click GitHub link instead.
+
 ## License
 
 [MIT](LICENSE)

@@ -48,5 +48,6 @@ This file tells you how to use it. Read it once at the start of a session.
 | Build with LLMs or ML | `llm-application-development`, `prompt-engineering`, `rag-systems`, `ai-agents-and-tool-use`, `llm-evaluation` |
 | Ship and operate | `ci-cd-pipelines`, `containerization`, `infrastructure-as-code`, `observability`, `release-management` |
 | Write or communicate | `technical-writing`, `product-requirements`, `presentations`, `business-communication`, `document-generation` |
+| Add what they learned today to this library | `skill-lab-sync` (compare against the catalog, reuse or propose a PR) |
 
 The full list, with descriptions, is in [`CATALOG.md`](CATALOG.md).

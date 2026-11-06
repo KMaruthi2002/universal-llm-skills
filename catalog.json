@@ -2,7 +2,7 @@
   "name": "Universal LLM Skills",
   "description": "Deep, style-neutral skills for any LLM across development, analysis, design, quality, automation and more.",
   "entry_point": "AGENTS.md",
-  "skill_count": 118,
+  "skill_count": 119,
   "categories": {
     "meta": "Meta: how to work",
     "development": "Development",
@@ -109,6 +109,22 @@
         "business-communication",
         "pull-request-workflow",
         "project-management"
+      ]
+    },
+    {
+      "name": "skill-lab-sync",
+      "category": "meta",
+      "description": "Keep this skills library growing from real daily work: notice the distinct kinds of task you did today, compare each against the library's catalog, reuse the skill that already covers it, and propose a pull request only for what is genuinely new (or a section for what is nearly covered). Use when a person asks to \"sync skills\", \"update the skills lab\", \"add what I learned today\", at the end of a working session, or whenever you finish a task type that no skill in the catalog describes. Not for routing a single request to skills (see using-skills) or for the craft of writing a skill well (see write-new-skill, which this skill hands off to).",
+      "path": "skills/skill-lab-sync/SKILL.md",
+      "references": [],
+      "related": [
+        "using-skills",
+        "write-new-skill",
+        "manage-context",
+        "verify-before-done",
+        "pull-request-workflow",
+        "git-workflow",
+        "report-results"
       ]
     },
     {
