@@ -139,7 +139,11 @@ def verdict(best: float) -> str:
 
 
 def compare(candidates: list[str], catalog_source: str | None, as_json: bool) -> int:
-    skills = load_catalog(catalog_source)
+    try:
+        skills = load_catalog(catalog_source)
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        print(f"error: could not load the catalog ({catalog_source or 'default'}): {e}", file=sys.stderr)
+        return 2
     idf = idf_table(skills)
     results = []
     for raw in candidates:
@@ -326,7 +330,12 @@ def main(argv: list[str] | None = None) -> int:
     if a.cmd == "compare":
         cands = list(a.candidates)
         if a.file:
-            cands += [l for l in Path(a.file).read_text(encoding="utf-8").splitlines() if l.strip() and not l.lstrip().startswith("#")]
+            try:
+                lines = Path(a.file).read_text(encoding="utf-8").splitlines()
+            except (OSError, UnicodeDecodeError) as e:
+                print(f"error: cannot read {a.file}: {e}", file=sys.stderr)
+                return 2
+            cands += [l for l in lines if l.strip() and not l.lstrip().startswith("#")]
         if not cands:
             p.error("give at least one candidate or --file")
         return compare(cands, a.catalog, a.json)
