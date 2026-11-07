@@ -44,7 +44,7 @@ candidate says; an exact name match is 1.0. Thresholds live at
 `scripts/skill_lab_sync.py:43`: ≥ 0.45 existing, ≥ 0.25 extend, else new. The catalog
 comes from the clone's `catalog.json`, or `--catalog` with a path or URL.
 
-**`propose`** (`scripts/skill_lab_sync.py:196`) takes a finished `SKILL.md`, rejects it
+**`propose`** (`scripts/skill_lab_sync.py:200`) takes a finished `SKILL.md`, rejects it
 early if the body is under 2000 characters (`:212`) or its name already exists without
 `--extend` (`:218`), then works in a temporary git worktree on `skill-lab/<name>` cut
 from `origin/main` (`:240`): copy the skill and any `references/`, `scripts/`,
