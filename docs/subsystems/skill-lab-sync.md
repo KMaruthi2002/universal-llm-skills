@@ -2,13 +2,13 @@
 title: Skill lab sync
 type: subsystem
 created: 2026-11-06
-updated: 2026-11-06
+updated: 2026-11-17
 sources:
   - code: skills/skill-lab-sync/SKILL.md
   - code: scripts/skill_lab_sync.py
   - code: scripts/validate.py
   - code: .github/workflows/validate.yml
-verified_at: 6e9490e
+verified_at: b225f38
 ---
 
 # Skill lab sync
@@ -45,11 +45,11 @@ candidate says; an exact name match is 1.0. Thresholds live at
 comes from the clone's `catalog.json`, or `--catalog` with a path or URL.
 
 **`propose`** (`scripts/skill_lab_sync.py:200`) takes a finished `SKILL.md`, rejects it
-early if the body is under 2000 characters (`:212`) or its name already exists without
-`--extend` (`:218`), then works in a temporary git worktree on `skill-lab/<name>` cut
-from `origin/main` (`:240`): copy the skill and any `references/`, `scripts/`,
+early if the body is under 2000 characters (`:215`) or its name already exists without
+`--extend` (`:221`), then works in a temporary git worktree on `skill-lab/<name>` cut
+from `origin/main` (`:244`): copy the skill and any `references/`, `scripts/`,
 `examples/` beside it, run `scripts/validate.py` and `scripts/build_catalog.py`, commit, push, open the
-PR with `gh` (`:295`). Without push permission it forks first (`:278`). The worktree and
+PR with `gh` (`:299`). Without push permission it forks first (`:281`). The worktree and
 the local branch are removed in `finally` (`:301`), so the contributor's checkout is
 never touched. `--dry-run` stops before the push.
 
