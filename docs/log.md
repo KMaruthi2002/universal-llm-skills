@@ -15,3 +15,10 @@ Append-only. Newest entries at the bottom.
   `skills/skill-lab-sync/SKILL.md` and `scripts/skill_lab_sync.py` (the area just built).
   `docs/SKILL_STANDARD.md` and `docs/CONNECTING.md` predate the wiki and stay as plain
   documents. Nothing else surveyed.
+
+## [2026-11-17] sync | skill-lab-sync line references
+
+- Re-checked `subsystems/skill-lab-sync` against `scripts/skill_lab_sync.py` at `b225f38`.
+  The `propose` line references had drifted after the `compare` error-handling change
+  (`:212`, `:218`, `:240`, `:278`, `:295` are now `:215`, `:221`, `:244`, `:281`, `:299`).
+- Bumped `verified_at` to `b225f38`.
